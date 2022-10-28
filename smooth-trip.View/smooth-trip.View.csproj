@@ -9,20 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="barra-de-menu.png" />
-    <None Remove="de-volta.png" />
-    <None Remove="registro.png" />
-    <None Remove="se-escondendo.png" />
-    <None Remove="smooth-trip-logo.png" />
-    <None Remove="ver.png" />
-    <None Remove="x.png" />
+    <None Remove="atualizar.png" />
+    <None Remove="ok.png" />
+    <None Remove="smooth-trip-logo-preta.jpeg" />
+    <None Remove="smooth-trip-logo-preta.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="atualizar.png" />
     <Resource Include="barra-de-menu.png" />
     <Resource Include="de-volta.png" />
+    <Resource Include="ok.png" />
     <Resource Include="registro.png" />
     <Resource Include="se-escondendo.png" />
+    <Resource Include="smooth-trip-logo-preta.jpeg" />
+    <Resource Include="smooth-trip-logo-preta.png" />
     <Resource Include="smooth-trip-logo.png" />
     <Resource Include="ver.png" />
     <Resource Include="x.png" />
@@ -41,7 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Telas\" />
     <Folder Include="Sistema\" />
   </ItemGroup>
 

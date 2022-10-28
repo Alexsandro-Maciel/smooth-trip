@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 
 namespace smooth_trip
 {
-    public partial class frmLogin : Window
+    public partial class frmAlterarSenha : Window
     {
-        public frmLogin()
+        public frmAlterarSenha()
         {
             InitializeComponent();
         }
@@ -26,23 +26,18 @@ namespace smooth_trip
             Close();
         }
 
-        private void IrParaFrmCadastro(object sender, MouseButtonEventArgs e)
+        private void VoltarParaFrmRecuperacaoSenha(object sender, MouseButtonEventArgs e)
         {
-            frmCadastro frmCadastro = new frmCadastro();
-            frmCadastro.Show();
+            frmRecuperacaoSenha frmRecuperacaoSenha = new frmRecuperacaoSenha();
+            frmRecuperacaoSenha.Show();
             Close();
         }
 
-        private void IrParaFrmInicialFazendeiro()
+        private void AtualizarSenha(object sender, MouseButtonEventArgs e)
         {
-            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro();
-            frmInicialFazendeiro.Show();
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
             Close();
-        }
-
-        private void EfetuarLogin(object sender, RoutedEventArgs e)
-        {
-            IrParaFrmInicialFazendeiro();
         }
 
         private void VerSenha(object sender, MouseButtonEventArgs e)
@@ -67,11 +62,26 @@ namespace smooth_trip
             boxSenhaEscondida.Password = boxSenhaVisivel.Text.ToString();
         }
 
-        private void IrParaFrmRecuperarSenha(object sender, MouseButtonEventArgs e)
+        private void VerConfirmarSenha(object sender, MouseButtonEventArgs e)
         {
-            frmRecuperacaoSenha frmRecuperacaoSenha = new frmRecuperacaoSenha();
-            frmRecuperacaoSenha.Show();
-            Close();
+            boxConfirmarSenhaEscondida.Visibility = Visibility.Hidden;
+            boxConfirmarSenhaVisivel.Visibility = Visibility.Visible;
+
+            imgVerConfirmarSenha.Visibility = Visibility.Hidden;
+            imgEsconderConfirmarSenha.Visibility = Visibility.Visible;
+
+            boxConfirmarSenhaVisivel.Text = boxSenhaEscondida.Password.ToString();
+        }
+
+        private void EsconderConfirmarSenha(object sender, MouseButtonEventArgs e)
+        {
+            boxConfirmarSenhaEscondida.Visibility = Visibility.Visible;
+            boxConfirmarSenhaVisivel.Visibility = Visibility.Hidden;
+
+            imgEsconderConfirmarSenha.Visibility = Visibility.Hidden;
+            imgVerConfirmarSenha.Visibility = Visibility.Visible;
+
+            boxConfirmarSenhaEscondida.Password = boxSenhaVisivel.Text.ToString();
         }
     }
 }
