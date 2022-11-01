@@ -1,0 +1,16 @@
+﻿<Window x:Class="smooth_trip.frmMensagemAvisoSimNao"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:smooth_trip"
+        mc:Ignorable="d"
+        Title="frmMensagemAvisoSimNao" Height="224" Width="320" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF078231">
+    <Grid>
+        <Image x:Name="imgAtencao" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Source="/sinal-de-aviso.png"/>
+        <TextBlock x:Name="txtTitulo" HorizontalAlignment="Center" Margin="0,15,0,0" TextWrapping="Wrap" Text="Atenção" VerticalAlignment="Top" FontSize="30" Foreground="White"/>
+        <TextBlock x:Name="txtMensagem" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Preencha todos os campos." VerticalAlignment="Top" FontSize="22" Foreground="White" Height="76" Width="208" Margin="0,78,0,0"/>
+        <Image x:Name="imgSim" HorizontalAlignment="Left" Height="48" Margin="56,166,0,0" VerticalAlignment="Top" Width="48" Source="/sim.png"/>
+        <Image x:Name="imgNao" HorizontalAlignment="Left" Height="48" Margin="216,166,0,0" VerticalAlignment="Top" Width="48" Source="/multiplicar.png" RenderTransformOrigin="0.75,0.062"/>
+    </Grid>
+</Window>

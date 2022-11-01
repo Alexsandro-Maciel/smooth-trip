@@ -11,7 +11,13 @@
   <ItemGroup>
     <None Remove="atualizar.png" />
     <None Remove="deletar-lixeira.png" />
+    <None Remove="multiplicar %281%29.png" />
+    <None Remove="multiplicar.png" />
     <None Remove="ok.png" />
+    <None Remove="sim.png" />
+    <None Remove="sinal-de-aviso.png" />
+    <None Remove="sinal-de-informacao %281%29.png" />
+    <None Remove="sinal-de-informacao.png" />
     <None Remove="smooth-trip-logo-preta.jpeg" />
     <None Remove="smooth-trip-logo-preta.png" />
   </ItemGroup>
@@ -21,9 +27,15 @@
     <Resource Include="barra-de-menu.png" />
     <Resource Include="de-volta.png" />
     <Resource Include="deletar-lixeira.png" />
+    <Resource Include="multiplicar (1).png" />
+    <Resource Include="multiplicar.png" />
     <Resource Include="ok.png" />
     <Resource Include="registro.png" />
     <Resource Include="se-escondendo.png" />
+    <Resource Include="sim.png" />
+    <Resource Include="sinal-de-aviso.png" />
+    <Resource Include="sinal-de-informacao (1).png" />
+    <Resource Include="sinal-de-informacao.png" />
     <Resource Include="smooth-trip-logo-preta.png" />
     <Resource Include="smooth-trip-logo.png" />
     <Resource Include="ver.png" />
@@ -40,10 +52,34 @@
     <Page Update="frmInicialFazendeiro.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
+    <Page Update="frmMensagemInformacao.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="frmMensagemErro.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="frmMensagemAvisoSimNao.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Sistema\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="frmMensagemInformacao.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="frmMensagemErro.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="frmMensagemAvisoSimNao.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
