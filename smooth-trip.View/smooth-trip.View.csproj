@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="atualizar.png" />
+    <None Remove="deletar-lixeira.png" />
     <None Remove="ok.png" />
     <None Remove="smooth-trip-logo-preta.jpeg" />
     <None Remove="smooth-trip-logo-preta.png" />
@@ -19,6 +20,7 @@
     <Resource Include="atualizar.png" />
     <Resource Include="barra-de-menu.png" />
     <Resource Include="de-volta.png" />
+    <Resource Include="deletar-lixeira.png" />
     <Resource Include="ok.png" />
     <Resource Include="registro.png" />
     <Resource Include="se-escondendo.png" />

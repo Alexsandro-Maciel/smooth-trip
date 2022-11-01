@@ -40,6 +40,7 @@ namespace smooth_trip
             imgVoltar.Visibility = Visibility.Visible;
             txtMinhasCargas.Visibility = Visibility.Visible;
             txtAlterarPerfil.Visibility = Visibility.Visible;
+            txtExcluirPerfil.Visibility = Visibility.Visible;
             txtSair.Visibility = Visibility.Visible;
             imgLogoPreta.Visibility = Visibility.Visible;
         }
@@ -51,6 +52,7 @@ namespace smooth_trip
             imgVoltar.Visibility = Visibility.Hidden;
             txtMinhasCargas.Visibility = Visibility.Hidden;
             txtAlterarPerfil.Visibility = Visibility.Hidden;
+            txtExcluirPerfil.Visibility = Visibility.Hidden;
             txtSair.Visibility = Visibility.Hidden;
             imgLogoPreta.Visibility = Visibility.Hidden;
 

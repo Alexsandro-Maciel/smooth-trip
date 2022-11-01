@@ -49,7 +49,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="txtSair" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sair" VerticalAlignment="Top" Width="38" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="89,178,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="RealizarLogout" Visibility="Hidden">
+        <TextBlock x:Name="txtSair" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sair" VerticalAlignment="Top" Width="38" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="89,220,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="RealizarLogout" Visibility="Hidden">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -60,6 +60,16 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         <Image x:Name="imgLogoPreta" HorizontalAlignment="Left" Height="132" Margin="42,400,0,0" VerticalAlignment="Top" Width="132" Source="/smooth-trip-logo-preta.png" Visibility="Hidden"/>
+        <TextBlock x:Name="txtExcluirPerfil" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Excluir Perfil" VerticalAlignment="Top" Width="137" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="55,179,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmConfirmarSenha" Visibility="Hidden">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.367"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.494"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
 
     </Grid>
 </Window>

@@ -8,7 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ConexãoBD\" />
+    <Compile Remove="ConexãoBD\**" />
+    <EmbeddedResource Remove="ConexãoBD\**" />
+    <None Remove="ConexãoBD\**" />
+    <Page Remove="ConexãoBD\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ConexaoBD\" />
     <Folder Include="Consultas\" />
   </ItemGroup>
 
