@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 
 namespace smooth_trip
 {
-    public partial class frmInicialFazendeiro : Window
+    public partial class frmInicialMotorista : Window
     {
-        public frmInicialFazendeiro()
+        public frmInicialMotorista()
         {
             InitializeComponent();
         }
@@ -38,7 +38,6 @@ namespace smooth_trip
             retMenu.Visibility = Visibility.Visible;
             txtMenu.Visibility = Visibility.Visible;
             imgVoltar.Visibility = Visibility.Visible;
-            txtNovasCargas.Visibility = Visibility.Visible;
             txtMinhasCargas.Visibility = Visibility.Visible;
             txtAlterarPerfil.Visibility = Visibility.Visible;
             txtSair.Visibility = Visibility.Visible;
@@ -50,19 +49,11 @@ namespace smooth_trip
             retMenu.Visibility = Visibility.Hidden;
             txtMenu.Visibility = Visibility.Hidden;
             imgVoltar.Visibility = Visibility.Hidden;
-            txtNovasCargas.Visibility = Visibility.Hidden;
             txtMinhasCargas.Visibility = Visibility.Hidden;
             txtAlterarPerfil.Visibility = Visibility.Hidden;
             txtSair.Visibility = Visibility.Hidden;
             imgLogoPreta.Visibility = Visibility.Hidden;
 
-        }
-
-        private void IrParaFrmNovasCargas(object sender, MouseButtonEventArgs e)
-        {
-            frmNovasCargas frmNovasCargas = new frmNovasCargas();
-            frmNovasCargas.Show();
-            Close();
         }
 
         private void IrParaFrmMinhasCargas(object sender, MouseButtonEventArgs e)
