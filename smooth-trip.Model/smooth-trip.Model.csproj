@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Consultas\" />
+    <PackageReference Include="MySqlConnector" Version="2.1.13" />
   </ItemGroup>
 
 </Project>
