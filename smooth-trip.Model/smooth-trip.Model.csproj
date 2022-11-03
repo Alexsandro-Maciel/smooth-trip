@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ConexaoBD\" />
     <Folder Include="Consultas\" />
   </ItemGroup>
 
