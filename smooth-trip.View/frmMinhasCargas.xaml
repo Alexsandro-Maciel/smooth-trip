@@ -14,6 +14,7 @@
         <DataGrid x:Name="dgvMinhasCargas" Margin="0,70,0,170" BorderBrush="{x:Null}" Foreground="#FF078231" Background="#FF078231" FontWeight="Bold">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Cód."/>
+                <DataGridTextColumn Header="Origem"/>
                 <DataGridTextColumn Header="Destino"/>
                 <DataGridTextColumn Header="Destinatário"/>
                 <DataGridTextColumn Header="Remetente"/>
