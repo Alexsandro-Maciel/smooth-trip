@@ -8,7 +8,7 @@ using MySqlConnector;
 
 public static class ConsultasUsuario
 {
-    public static bool VerificarUsuarioExistente(string email)
+    public static bool VerificarUsuarioExistente(string nomeUsuario)
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
         bool usuarioExiste = false;
@@ -17,8 +17,8 @@ public static class ConsultasUsuario
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"Select * from Usuario Where email = @email";
-            comando.Parameters.AddWithValue("@email", email);
+            comando.CommandText = @"Select * from Usuario Where Nome_Usuario = @nomeUsuario";
+            comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
             var leitura = comando.ExecuteReader();
             while (leitura.Read())
             {
@@ -43,7 +43,7 @@ public static class ConsultasUsuario
         return usuarioExiste;
     }
 
-    public static bool NovoUsuario(string email, string senha)
+    public static bool NovoUsuario(string nomeUsuario, string senha, string email, string tipoUsuario)
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
         bool foiInserido = false;
@@ -53,9 +53,12 @@ public static class ConsultasUsuario
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"Insert Into Usuario (email, senha) Values (@email, @senha)";
-            comando.Parameters.AddWithValue("@email", email);
+            comando.CommandText = @"Insert Into Usuario (Nome_Usuario, Senha, Email, Tipo_Usuario) Values (@nomeUsuario, @senha, @email, @tipoUsuario)";
+            comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
             comando.Parameters.AddWithValue("@senha", senhaCriptografada);
+            comando.Parameters.AddWithValue("@email", email);
+            comando.Parameters.AddWithValue("@tipoUsuario", tipoUsuario);
+
             var leitura = comando.ExecuteReader();
             foiInserido = true;
         }
@@ -76,29 +79,29 @@ public static class ConsultasUsuario
         return foiInserido;
     }
 
-    public static usuario ObterUsuarioPeloEmailSenha(string email, string senha)
+    public static Usuario ObterUsuarioPeloEmailSenha(string nomeUsuario, string senha)
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
-        usuario usuario = null;
+        Usuario usuario = null;
         string senhaCriptografada = Criptografia.CriptografarMD5(senha);
 
         try
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"Select * from Usuario Where email = @email and senha = @senha";
+            comando.CommandText = @"Select * from Usuario Where Nome_Usuario = @nomeUsuario and Senha = @senha";
+            comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
             comando.Parameters.AddWithValue("@senha", senhaCriptografada);
-            comando.Parameters.AddWithValue("@email", email);
             var leitura = comando.ExecuteReader();
 
             while (leitura.Read())
             {
-                usuario = new usuario();
-                usuario.Id = leitura.GetInt32("id");
-                usuario.Nome_Usuario = leitura.GetString("nome_usuario");
-                usuario.Senha = leitura.GetString("senha");
-                usuario.Email = leitura.GetString("email");
-                usuario.Tipo_Usuario = leitura.GetString("tipo_usuario");
+                usuario = new Usuario();
+                usuario.Id = leitura.GetInt32("Id");
+                usuario.Nome_Usuario = leitura.GetString("Nome_Usuario");
+                usuario.Senha = leitura.GetString("Senha");
+                usuario.Email = leitura.GetString("Email");
+                usuario.Tipo_Usuario = leitura.GetString("Tipo_Usuario");
 
                 break;
             }
