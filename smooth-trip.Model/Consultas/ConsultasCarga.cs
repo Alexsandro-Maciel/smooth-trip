@@ -7,7 +7,10 @@ using MySqlConnector;
 
 public class ConsultasCarga
 {
-    public static bool InserirProduto(string nome, string descricao, string fabricante, int quantidade)
+    public static bool InserirCarga(string enderecoDestino, string enderecoOrigem, int quantidadeAnimais,
+                                    string tipoCaminhao, float temperatura, float nivelAgua, float nivelComida,
+                                    float umidade, string dataEntrega, string dataSaida, int idFazendeiroRemetente, 
+                                    int idFazendeiroDestinatario, int idMotorista)
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
         bool foiInserido = false;
@@ -16,13 +19,27 @@ public class ConsultasCarga
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"
-                INSERT INTO Produto (nome, descricao, qtd, fabricante) 
-                VALUES (@nome, @descricao, @qtd, @fabricante)";
-            comando.Parameters.AddWithValue("@nome", nome);
-            comando.Parameters.AddWithValue("@descricao", descricao);
-            comando.Parameters.AddWithValue("@qtd", quantidade);
-            comando.Parameters.AddWithValue("@fabricante", fabricante);
+            comando.CommandText = @"INSERT INTO Carga (Endereco_Destino, Endereco_Origem, Quantidade_Animais, 
+                                    Tipo_Caminhao, Temperatura, Nivel_Agua, Nivel_Comida, Umidade, Data_Entrega, 
+                                    Data_Saida, Id_Fazendeiro_Remetente, Id_Fazendeiro_Destinatario, Id_Motorista) 
+                                    VALUES (@Endereco_Destino, @Endereco_Origem, @Quantidade_Animais, @Tipo_Caminhao,
+                                    @Temperatura, @Nivel_Agua, @Nivel_Comida, @Umidade, @Data_Entrega, @Data_Saida, 
+                                    @Id_Fazendeiro_Remetente, @Id_Fazendeiro_Destinatario, @Id_Motorista)";
+
+            comando.Parameters.AddWithValue("@Endereco_Destino", enderecoDestino);
+            comando.Parameters.AddWithValue("@Endereco_Origem", enderecoOrigem);
+            comando.Parameters.AddWithValue("@Quantidade_Animais", quantidadeAnimais);
+            comando.Parameters.AddWithValue("@Tipo_Caminhao", tipoCaminhao);
+            comando.Parameters.AddWithValue("@Temperatura", temperatura);
+            comando.Parameters.AddWithValue("@Nivel_Agua", nivelAgua);
+            comando.Parameters.AddWithValue("@Nivel_Comida", nivelComida);
+            comando.Parameters.AddWithValue("@Umidade", umidade);
+            comando.Parameters.AddWithValue("@Data_Entrega", dataEntrega);
+            comando.Parameters.AddWithValue("@Data_Saida", dataSaida);
+            comando.Parameters.AddWithValue("@Id_Fazendeiro_Remetente", idFazendeiroRemetente);
+            comando.Parameters.AddWithValue("@Id_Fazendeiro_Destinatario", idFazendeiroDestinatario);
+            comando.Parameters.AddWithValue("@Id_Motorista", idMotorista);
+
             var leitura = comando.ExecuteReader();
             foiInserido = true;
         }
@@ -40,71 +57,8 @@ public class ConsultasCarga
         return foiInserido;
     }
 
-    public static bool ExcluirProduto(int id)
-    {
-        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
-        bool foiExcluido = false;
 
-        try
-        {
-            conexao.Open();
-            var comando = conexao.CreateCommand();
-            comando.CommandText = @"
-                DELETE FROM Produto WHERE id = @id;";
-            comando.Parameters.AddWithValue("@id", id);
-            var leitura = comando.ExecuteReader();
-            foiExcluido = true;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        finally
-        {
-            if (conexao.State == System.Data.ConnectionState.Open)
-            {
-                conexao.Close();
-            }
-        }
-        return foiExcluido;
-    }
-
-    public static bool AlterarProduto(int id, string nome, string descricao, string fabricante, int quantidade)
-    {
-        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
-        bool foiAtualizado = false;
-
-        try
-        {
-            conexao.Open();
-            var comando = conexao.CreateCommand();
-            comando.CommandText = @"
-                UPDATE Produto 
-                SET nome = @nome, descricao = @descricao, fabricante = @fabricante, qtd = @quantidade
-                WHERE id = @id";
-            comando.Parameters.AddWithValue("@id", id);
-            comando.Parameters.AddWithValue("@nome", nome);
-            comando.Parameters.AddWithValue("@descricao", descricao);
-            comando.Parameters.AddWithValue("@quantidade", quantidade);
-            comando.Parameters.AddWithValue("@fabricante", fabricante);
-            var leitura = comando.ExecuteReader();
-            foiAtualizado = true;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        finally
-        {
-            if (conexao.State == System.Data.ConnectionState.Open)
-            {
-                conexao.Close();
-            }
-        }
-        return foiAtualizado;
-    }
-
-    public static List<carga> ObterTodosProdutos()
+    public static List<carga> ObterTodasCargas()
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
         List<carga> listaDeProdutos = new List<carga>();
@@ -113,8 +67,7 @@ public class ConsultasCarga
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"
-                SELECT * FROM Produto";
+            comando.CommandText = @"SELECT * FROM Cargas where Id_Fazendeiro_Destinatário = @idUsuarioLogado or Id_Fazendeiro_Destinatário = @idUsuarioLogado or Id_Motorista = @idUsuarioLogado ";
             var leitura = comando.ExecuteReader();
             while (leitura.Read())
             {
