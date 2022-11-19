@@ -27,7 +27,7 @@
 
 
         <TextBlock x:Name="txtNaoTemConta" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Não tem uma conta?" VerticalAlignment="Top" Width="130" Height="33" FontSize="14" Padding="0,0,0,0" Foreground="Black" Margin="33,449,0,0"/>
-        <TextBlock x:Name="txtCadastreSe" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cadastre-se!" VerticalAlignment="Top" Width="82" Height="33" FontSize="14" Padding="0,0,0,0" Foreground="#FF078231" Margin="168,449,0,0" FontWeight="Bold" MouseLeftButtonDown="IrParaFrmCadastro"/>
+        <TextBlock x:Name="txtCadastreSe" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cadastre-se!" VerticalAlignment="Top" Width="82" Height="33" FontSize="14" Padding="0,0,0,0" Foreground="#FF078231" Margin="168,449,0,0" FontWeight="Bold" MouseLeftButtonDown="IrParaFrmEscolherTipo"/>
 
         <Button x:Name="btnRealizarLogin" Content="Realizar Login" HorizontalAlignment="Center" Margin="0,516,0,0" VerticalAlignment="Top" Height="34" Width="150" FontSize="18" Background="Black" BorderBrush="{x:Null}" Foreground="White" Click="EfetuarLogin"/>
     </Grid>

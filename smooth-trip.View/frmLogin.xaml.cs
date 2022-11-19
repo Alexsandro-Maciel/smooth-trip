@@ -26,10 +26,10 @@ namespace smooth_trip
             Close();
         }
 
-        private void IrParaFrmCadastro(object sender, MouseButtonEventArgs e)
+        private void IrParaFrmEscolherTipo(object sender, MouseButtonEventArgs e)
         {
-            frmCadastro frmCadastro = new frmCadastro();
-            frmCadastro.Show();
+            frmEscolherTipo frmEscolherTipo = new frmEscolherTipo();
+            frmEscolherTipo.Show();
             Close();
         }
 
