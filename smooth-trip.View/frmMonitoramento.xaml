@@ -15,11 +15,13 @@
 
 
         <Image x:Name="imgFechar" HorizontalAlignment="Right" Height="30" Margin="0,20,20,0" VerticalAlignment="Top" Width="30" Source="/x.png" MouseLeftButtonDown="Fechar"/>
-        <TextBlock x:Name="txtTemperatura" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Temperatura: 20°C" VerticalAlignment="Top" Width="360" Height="70" FontSize="30" Padding="60,15,0,0" Background="#FF078231" Foreground="White" Margin="0,303,0,0"/>
-        <TextBlock x:Name="txtUmidade" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Umidade: 84%" VerticalAlignment="Top" Width="360" Height="70" FontSize="30" Padding="80,15,0,0" Background="#FF078231" Foreground="White" Margin="0,373,0,0"/>
-        <TextBlock x:Name="txtNivelComida" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Nível de Comida: 85%" VerticalAlignment="Top" Width="360" Height="70" FontSize="30" Padding="40,15,0,0" Background="#FF078231" Foreground="White" Margin="0,443,0,0"/>
-        <TextBlock x:Name="txtNivelAgua" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Nível de Água: 35 L" VerticalAlignment="Top" Width="360" Height="70" FontSize="30" Padding="60,15,0,0" Background="#FF078231" Foreground="White" Margin="0,513,0,0"/>
-        <TextBlock x:Name="txtCodigoCarga" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Código da Carga: 01" VerticalAlignment="Top" Width="360" Height="70" FontSize="30" Padding="50,15,0,0" Background="#FF078231" Foreground="White" Margin="0,233,0,0"/>
+        <TextBlock x:Name="txtTemperatura" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Temperatura: 20°C" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="90,5,0,0" Background="#FF078231" Foreground="White" Margin="0,281,0,0"/>
+        <TextBlock x:Name="txtUmidade" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Umidade: 84%" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="110,5,0,0" Background="#FF078231" Foreground="White" Margin="0,329,0,0"/>
+        <TextBlock x:Name="txtNivelComida" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Nível de Comida: 85%" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="70,5,0,0" Background="#FF078231" Foreground="White" Margin="0,377,0,0"/>
+        <TextBlock x:Name="txtNivelAgua" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Nível de Água: 35 L" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="85,5,0,0" Background="#FF078231" Foreground="White" Margin="0,425,0,0" Grid.IsSharedSizeScope="True"/>
+        <TextBlock x:Name="txtCodigoCarga" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Código da Carga: 01" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="80,5,0,0" Background="#FF078231" Foreground="White" Margin="0,233,0,0"/>
+        <TextBlock x:Name="txtAlterar" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Alterar" VerticalAlignment="Top" Width="100" Height="33" FontSize="24" Padding="15,0,0,0" Background="#FF078231" Foreground="White" Margin="24,532,0,0" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" MouseLeftButtonDown="IrParaFrmAlterarCarga"/>
+        <TextBlock x:Name="txtExcluir" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Excluir" VerticalAlignment="Top" Width="100" Height="33" FontSize="24" Padding="15,0,0,0" Background="#FF078231" Foreground="White" Margin="225,532,0,0" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" MouseLeftButtonDown="IrParaFrmExcluirCarga"/>
 
     </Grid>
 </Window>

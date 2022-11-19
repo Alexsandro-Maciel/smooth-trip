@@ -32,5 +32,15 @@ namespace smooth_trip
             frmMinhasCargas.Show();
             Close();
         }
+
+        private void IrParaFrmAlterarCarga(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void IrParaFrmExcluirCarga(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
