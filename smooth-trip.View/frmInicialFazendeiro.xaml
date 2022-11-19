@@ -29,7 +29,7 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="41" Margin="10,10,0,0" VerticalAlignment="Top" Width="41" Source="/de-volta.png" MouseLeftButtonDown="VoltarMenu" Visibility="Hidden"/>
-        <TextBlock x:Name="txtNovasCargas" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Novas Cargas" VerticalAlignment="Top" Width="137" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="47,94,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmNovasCargas" Visibility="Hidden">
+        <TextBlock x:Name="txtNovasCargas" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Novas Cargas" VerticalAlignment="Top" Width="136" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="52,94,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmNovasCargas" Visibility="Hidden">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -39,7 +39,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="txtMinhasCargas" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Minhas Cargas" VerticalAlignment="Top" Width="146" Height="31" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="43,141,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmMinhasCargas" Visibility="Hidden">
+        <TextBlock x:Name="txtMinhasCargas" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Minhas Cargas" VerticalAlignment="Top" Width="146" Height="31" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="47,134,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmMinhasCargas" Visibility="Hidden">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -49,7 +49,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="txtAlterarPerfil" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Alterar Perfil" VerticalAlignment="Top" Width="137" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="52,185,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmConfirmarSenha" Visibility="Hidden">
+        <TextBlock x:Name="txtAlterarPerfil" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Alterar Perfil" VerticalAlignment="Top" Width="136" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="52,172,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmConfirmarSenha" Visibility="Hidden">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -59,7 +59,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="txtSair" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sair" VerticalAlignment="Top" Width="38" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="89,276,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="RealizarLogout" Visibility="Hidden">
+        <TextBlock x:Name="txtSair" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sair" VerticalAlignment="Top" Width="38" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="101,297,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="RealizarLogout" Visibility="Hidden">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -70,7 +70,17 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         <Image x:Name="imgLogoPreta" HorizontalAlignment="Left" Height="132" Margin="42,400,0,0" VerticalAlignment="Top" Width="132" Source="/smooth-trip-logo-preta.png" Visibility="Hidden"/>
-        <TextBlock x:Name="txtExcluirPerfil" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Excluir Perfil" VerticalAlignment="Top" Width="137" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="55,229,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmConfirmarSenha" Visibility="Hidden">
+        <TextBlock x:Name="txtExcluirPerfil" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Excluir Perfil" VerticalAlignment="Top" Width="136" Height="32" FontSize="22" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="52,213,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmConfirmarSenha" Visibility="Hidden">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.367"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.494"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock x:Name="txtCadastrarMotorista" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cadastrar Motorista" VerticalAlignment="Top" Width="176" Height="32" FontSize="20" Padding="0,0,0,0" Foreground="White" FontFamily="Segoe UI" Margin="32,256,0,0" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="IrParaFrmCadastroMotorista" Visibility="Hidden">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

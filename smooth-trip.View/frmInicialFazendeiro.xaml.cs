@@ -81,11 +81,19 @@ namespace smooth_trip
             Close();
         }
 
+        private void IrParaFrmCadastroMotorista(object sender, MouseButtonEventArgs e)
+        {
+            frmCadastroMotorista frmCadastroMotorista = new frmCadastroMotorista();
+            frmCadastroMotorista.Show();
+            Close();
+        }
+
         private void RealizarLogout(object sender, MouseButtonEventArgs e)
         {
             frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
             Close();
         }
+
     }
 }
