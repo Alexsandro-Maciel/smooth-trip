@@ -58,10 +58,10 @@ public class ConsultasCarga
     }
 
 
-    public static List<carga> ObterTodasCargas()
+    public static List<Carga> ObterTodasCargas()
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
-        List<carga> listaDeProdutos = new List<carga>();
+        List<Carga> listaDeProdutos = new List<Carga>();
 
         try
         {
@@ -71,7 +71,7 @@ public class ConsultasCarga
             var leitura = comando.ExecuteReader();
             while (leitura.Read())
             {
-                carga carga = new carga();
+                Carga carga = new Carga();
                 carga.Id = leitura.GetInt32("id");
                 carga.Endereco_Destino = leitura.GetString("nome");
                 carga.Endereco_Origem = leitura.GetString("descricao");
@@ -94,5 +94,11 @@ public class ConsultasCarga
             }
         }
         return listaDeProdutos;
+    }
+
+    public static bool ExcluirCarga(int id)
+    {
+        bool foiExcluido = false;
+        return foiExcluido;
     }
 }

@@ -18,6 +18,7 @@ public static class ConsultasUsuario
             conexao.Open();
             var comando = conexao.CreateCommand();
             comando.CommandText = @"Select * from Usuario Where Nome_Usuario = @nomeUsuario";
+
             comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
             var leitura = comando.ExecuteReader();
             while (leitura.Read())
@@ -53,7 +54,9 @@ public static class ConsultasUsuario
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"Insert Into Usuario (Nome_Usuario, Senha, Email, Tipo_Usuario) Values (@nomeUsuario, @senha, @email, @tipoUsuario)";
+            comando.CommandText = @"Insert Into Usuario (Nome_Usuario, Senha, Email, Tipo_Usuario) 
+                                  Values (@nomeUsuario, @senha, @email, @tipoUsuario)";
+
             comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
             comando.Parameters.AddWithValue("@senha", senhaCriptografada);
             comando.Parameters.AddWithValue("@email", email);
@@ -79,6 +82,78 @@ public static class ConsultasUsuario
         return foiInserido;
     }
 
+    public static bool AtualizarUsuario(int id, string nomeUsuario, string senha, string email)
+    {
+        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
+        bool foiAtualizado = false;
+        string senhaCriptografada = Criptografia.CriptografarMD5(senha);
+
+        try
+        {
+            conexao.Open();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"Update Usuario 
+                                  set Nome_Usuario = @nomeUsuario, Senha = @senha, Email = @email 
+                                  where Id = @id";
+
+            comando.Parameters.AddWithValue("@id", id);
+            comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
+            comando.Parameters.AddWithValue("@senha", senhaCriptografada);
+            comando.Parameters.AddWithValue("@email", email);
+
+            var leitura = comando.ExecuteReader();
+            foiAtualizado = true;
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        finally
+        {
+            if (conexao.State == ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+        }
+
+        return foiAtualizado;
+    }
+
+    public static bool ExcluirUsuario(int id)
+    {
+        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
+        bool foiExcluido = false;
+
+        try
+        {
+            conexao.Open();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"delete from Usuario where Id = @id";
+
+            comando.Parameters.AddWithValue("@id", id);
+
+            var leitura = comando.ExecuteReader();
+            foiExcluido = true;
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        finally
+        {
+            if (conexao.State == ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+        }
+
+        return foiExcluido;
+    }
+
     public static Usuario ObterUsuarioPeloNomeSenha(string nomeUsuario, string senha)
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
@@ -89,7 +164,9 @@ public static class ConsultasUsuario
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"Select * from Usuario Where Nome_Usuario = @nomeUsuario and Senha = @senha";
+            comando.CommandText = @"Select * from Usuario 
+                                  Where Nome_Usuario = @nomeUsuario and Senha = @senha";
+
             comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
             comando.Parameters.AddWithValue("@senha", senhaCriptografada);
             var leitura = comando.ExecuteReader();
