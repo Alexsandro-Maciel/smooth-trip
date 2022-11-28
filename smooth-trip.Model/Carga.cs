@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class carga
+public class Carga
 {
     public int Id { get; set; }
     public string Endereco_Destino { get; set; }
