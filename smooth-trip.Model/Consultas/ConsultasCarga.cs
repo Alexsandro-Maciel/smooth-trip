@@ -75,7 +75,7 @@ public class ConsultasCarga
                 carga.Id = leitura.GetInt32("id");
                 carga.Endereco_Destino = leitura.GetString("nome");
                 carga.Endereco_Origem = leitura.GetString("descricao");
-                carga.Quantidade_Animais = leitura.GetString("fabricante");
+                carga.Quantidade_Animais = leitura.GetInt32("fabricante");
                 carga.Tipo_Caminhao = leitura.GetString("qtd");
                 carga.Temperatura = (float)leitura.GetDecimal("temperatura");
 

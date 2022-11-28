@@ -79,7 +79,7 @@ public static class ConsultasUsuario
         return foiInserido;
     }
 
-    public static Usuario ObterUsuarioPeloEmailSenha(string nomeUsuario, string senha)
+    public static Usuario ObterUsuarioPeloNomeSenha(string nomeUsuario, string senha)
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
         Usuario usuario = null;
