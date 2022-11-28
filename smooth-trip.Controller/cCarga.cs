@@ -6,5 +6,8 @@ using System.Threading.Tasks;
 
 public static class cCarga
 {
-
+    public static bool ExcluirCarga(int id)
+    {
+        return ConsultasCarga.ExcluirCarga(id);
+    }
 }

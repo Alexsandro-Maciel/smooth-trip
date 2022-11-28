@@ -20,4 +20,15 @@ public static class cUsuario
     {
         return ConsultasUsuario.NovoUsuario(nomeUsuario, senha, email, tipoUsuario);
     }
+
+    public static bool AtualizarUsuario(int id, string nomeUsuario, string senha, string email)
+    {
+        return ConsultasUsuario.AtualizarUsuario(id, nomeUsuario, senha, email);
+    }
+
+    public static bool ExcluirUsuario(int id)
+    {
+        return ConsultasUsuario.ExcluirUsuario(id);
+    }
+
 }
