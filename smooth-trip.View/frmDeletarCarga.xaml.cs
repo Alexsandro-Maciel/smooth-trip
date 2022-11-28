@@ -14,13 +14,26 @@ using System.Windows.Shapes;
 
 namespace smooth_trip
 {
-    public partial class frmMensagemAvisoOK : Window
+    public partial class frmDeletarCarga : Window
     {
-        public frmMensagemAvisoOK(string mensagem)
+        public frmDeletarCarga()
         {
             InitializeComponent();
+        }
 
-            txtMensagem.Text = mensagem;
+        private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Fechar(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
+
+        private void DeletarUsuario(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

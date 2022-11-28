@@ -16,9 +16,12 @@ namespace smooth_trip
 {
     public partial class frmInicialMotorista : Window
     {
-        public frmInicialMotorista()
+        Usuario usuario = null;
+        public frmInicialMotorista(Usuario usuario)
         {
             InitializeComponent();
+
+            usuario = usuario;
         }
 
         private void Fechar(object sender, MouseButtonEventArgs e)

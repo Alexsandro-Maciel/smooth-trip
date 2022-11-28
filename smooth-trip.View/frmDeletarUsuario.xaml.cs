@@ -12,11 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace smooth_trip.View
+namespace smooth_trip
 {
-    /// <summary>
-    /// Lógica interna para frmDeletarUsuario.xaml
-    /// </summary>
     public partial class frmDeletarUsuario : Window
     {
         public frmDeletarUsuario()

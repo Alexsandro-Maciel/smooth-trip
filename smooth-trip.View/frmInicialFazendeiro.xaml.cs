@@ -16,9 +16,12 @@ namespace smooth_trip
 {
     public partial class frmInicialFazendeiro : Window
     {
-        public frmInicialFazendeiro()
+        Usuario usuario = null;
+        public frmInicialFazendeiro(Usuario usuario)
         {
             InitializeComponent();
+
+            usuario = usuario;
         }
 
         private void Fechar(object sender, MouseButtonEventArgs e)

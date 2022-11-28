@@ -16,9 +16,11 @@ namespace smooth_trip
 {
     public partial class frmMensagemErro : Window
     {
-        public frmMensagemErro()
+        public frmMensagemErro(string mensagem)
         {
             InitializeComponent();
+
+            txtMensagem.Text = mensagem;
         }
     }
 }

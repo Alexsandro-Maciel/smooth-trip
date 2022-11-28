@@ -14,11 +14,23 @@ using System.Windows.Shapes;
 
 namespace smooth_trip
 {
-    public partial class frmMonitoramento : Window
+    public partial class frmAlterarCarga : Window
     {
-        public frmMonitoramento()
+        public frmAlterarCarga()
         {
             InitializeComponent();
+        }
+
+        private void VoltarParaFrmInicialFazendeiro(object sender, MouseButtonEventArgs e)
+        {
+            IrParaFrmInicialFazendeiro();
+        }
+
+        private void IrParaFrmInicialFazendeiro()
+        {
+            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro();
+            frmInicialFazendeiro.Show();
+            Close();
         }
 
         private void Fechar(object sender, MouseButtonEventArgs e)
@@ -26,19 +38,7 @@ namespace smooth_trip
             Close();
         }
 
-        private void VoltarParaFrmMinhasCargas(object sender, MouseButtonEventArgs e)
-        {
-            frmMinhasCargas frmMinhasCargas = new frmMinhasCargas();
-            frmMinhasCargas.Show();
-            Close();
-        }
-
-        private void IrParaFrmAlterarCarga(object sender, MouseButtonEventArgs e)
-        {
-
-        }
- 
-        private void IrParaFrmExcluirCarga(object sender, MouseButtonEventArgs e)
+        private void Atualizar(object sender, MouseButtonEventArgs e)
         {
 
         }

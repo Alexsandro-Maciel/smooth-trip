@@ -9,7 +9,7 @@
     <Grid>
         <Image x:Name="imgAtencao" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Source="/sinal-de-aviso.png"/>
         <TextBlock x:Name="txtTitulo" HorizontalAlignment="Center" Margin="0,15,0,0" TextWrapping="Wrap" Text="Atenção" VerticalAlignment="Top" FontSize="30" Foreground="White"/>
-        <TextBlock x:Name="txtMensagem" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Preencha todos os campos." VerticalAlignment="Top" FontSize="22" Foreground="White" Height="76" Width="208" Margin="0,78,0,0"/>
+        <TextBlock x:Name="txtMensagem" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Preencha todos os campos." VerticalAlignment="Top" FontSize="22" Foreground="White" Height="101" Width="208" Margin="0,60,0,0"/>
         <Image x:Name="imgOK" HorizontalAlignment="Center" Height="48" Margin="0,166,0,0" VerticalAlignment="Top" Width="48" Source="/ok.png"/>
     </Grid>
 </Window>

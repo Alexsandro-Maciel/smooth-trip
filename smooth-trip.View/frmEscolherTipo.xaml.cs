@@ -19,6 +19,9 @@ namespace smooth_trip
         public frmEscolherTipo()
         {
             InitializeComponent();
+
+            cbTipoUsuario.Items.Add("Motorista");
+            cbTipoUsuario.Items.Add("Fazendeiro");
         }
 
         private void VoltarParaFrmLogin(object sender, MouseButtonEventArgs e)
@@ -34,6 +37,25 @@ namespace smooth_trip
         }
 
         private void ConfirmarTipoUsuario(object sender, MouseButtonEventArgs e)
+        {
+            if(cbTipoUsuario.Text == "Motorista")
+            {
+                IrParaFrmMensagemInformacao("Por favor contate o fazendeiro!");
+            }
+
+            else
+            {
+                IrParaFrmCadastrarFazendeiro();
+            }
+        }
+
+        private void IrParaFrmMensagemInformacao(string mensagem)
+        {
+            frmMensagemInformacao frmMensagemInformacao = new frmMensagemInformacao(mensagem);
+            frmMensagemInformacao.Show();
+        }
+
+        private void IrParaFrmCadastrarFazendeiro()
         {
             frmCadastroFazendeiro frmCadastroFazendeiro = new frmCadastroFazendeiro();
             frmCadastroFazendeiro.Show();

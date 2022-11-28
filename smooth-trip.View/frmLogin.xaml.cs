@@ -26,23 +26,38 @@ namespace smooth_trip
             Close();
         }
 
-        private void IrParaFrmEscolherTipo(object sender, MouseButtonEventArgs e)
-        {
-            frmEscolherTipo frmEscolherTipo = new frmEscolherTipo();
-            frmEscolherTipo.Show();
-            Close();
-        }
-
-        private void IrParaFrmInicialFazendeiro()
-        {
-            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro();
-            frmInicialFazendeiro.Show();
-            Close();
-        }
-
         private void EfetuarLogin(object sender, RoutedEventArgs e)
         {
-            IrParaFrmInicialFazendeiro();
+            if (VerificarCampos() == true)
+            {
+                string nomeUsuario = boxUsuario.Text;
+                string senha = boxSenhaEscondida.Password;
+
+                Usuario usuario = cUsuario.ObterUsuarioPeloNomeSenha(nomeUsuario, senha);
+
+                if (usuario != null)
+                {
+                    if (usuario.Tipo_Usuario == "Fazendeiro")
+                    {
+                        IrParaFrmInicialFazendeiro(usuario);
+                    }
+
+                    else
+                    {
+                        IrParaFrmInicialMotorista(usuario);
+                    }
+                }
+
+                else
+                {
+                    IrParaFrmMensagemErro("Usuario e/ou senha incorretos!");
+                }
+            }
+
+            else
+            {
+                IrParaFrmMensagemAvisoOK("Preencha todos os campos!");
+            }
         }
 
         private void VerSenha(object sender, MouseButtonEventArgs e)
@@ -67,11 +82,62 @@ namespace smooth_trip
             boxSenhaEscondida.Password = boxSenhaVisivel.Text.ToString();
         }
 
-        private void IrParaFrmRecuperarSenha(object sender, MouseButtonEventArgs e)
+        private void Cadastrar(object sender, MouseButtonEventArgs e)
+        {
+            IrParaFrmEscolherTipo();
+        }
+
+        private void EsqueceuSenha(object sender, MouseButtonEventArgs e)
+        {
+            IrParaFrmRecuperacaoSenha();
+        }
+
+
+
+        private void IrParaFrmRecuperacaoSenha()
         {
             frmRecuperacaoSenha frmRecuperacaoSenha = new frmRecuperacaoSenha();
             frmRecuperacaoSenha.Show();
             Close();
+        }
+
+        private void IrParaFrmInicialFazendeiro(Usuario usuario)
+        {
+            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro(usuario);
+            frmInicialFazendeiro.Show();
+            Close();
+        }
+
+        private void IrParaFrmInicialMotorista(Usuario usuario)
+        {
+            frmInicialMotorista frmInicialMotorista = new frmInicialMotorista(usuario);
+            frmInicialMotorista.Show();
+            Close();
+        }
+
+        private void IrParaFrmEscolherTipo()
+        {
+            frmEscolherTipo frmEscolherTipo = new frmEscolherTipo();
+            frmEscolherTipo.Show();
+            Close();
+        }
+
+        private bool VerificarCampos()
+        {
+            return boxSenhaEscondida.Password != "" && boxUsuario.Text != "" ||
+                   boxSenhaVisivel.Text != "" && boxUsuario.Text != "" ? true : false;
+        }
+
+        private void IrParaFrmMensagemErro(string mensagem)
+        {
+            frmMensagemErro frmMensagemErro = new frmMensagemErro(mensagem);
+            frmMensagemErro.Show();
+        }
+
+        private void IrParaFrmMensagemAvisoOK(string mensagem)
+        {
+            frmMensagemAvisoOK frmMensagemAvisoOK = new frmMensagemAvisoOK(mensagem);
+            frmMensagemAvisoOK.Show();
         }
     }
 }
