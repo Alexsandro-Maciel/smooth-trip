@@ -12,10 +12,8 @@
         <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="49" Margin="10,10,0,0" VerticalAlignment="Top" Width="49" MouseLeftButtonDown="VoltarParaFrmInicial" Source="/de-volta.png"/>
 
 
-        <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="198" Source="/smooth-trip-logo.png" Margin="0,74,0,0"/>
-        <TextBlock x:Name="txtNomeUsuario" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="30" FontSize="22" Padding="15,0,0,0" Background="#FF078231" Foreground="White" Margin="0,374,0,0"/>
-        <TextBlock x:Name="txtUsuario" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Usuario:" VerticalAlignment="Top" Width="106" Height="26" FontSize="16" Padding="0,0,0,0" Foreground="Black" Margin="30,348,0,0"/>
-        <Image x:Name="btnDeletar" HorizontalAlignment="Center" Height="90" Margin="0,483,0,0" VerticalAlignment="Top" Width="80" Source="/deletar-lixeira.png" MouseLeftButtonDown="DeletarUsuario"/>
+        <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="293" VerticalAlignment="Top" Width="290" Source="/smooth-trip-logo.png" Margin="0,74,0,0"/>
+        <Image x:Name="btnDeletar" HorizontalAlignment="Center" Height="108" Margin="0,437,0,0" VerticalAlignment="Top" Width="96" Source="/deletar-lixeira.png" MouseLeftButtonDown="DeletarUsuario"/>
 
     </Grid>
 </Window>

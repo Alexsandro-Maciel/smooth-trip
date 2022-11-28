@@ -27,8 +27,7 @@
         <Image x:Name="imgVerConfirmarSenha" HorizontalAlignment="Left" Height="30" Margin="295,424,0,0" VerticalAlignment="Top" Width="30" Source="/ver.png" MouseLeftButtonDown="VerConfirmarSenha"/>
         <Image x:Name="imgEsconderConfirmarSenha" HorizontalAlignment="Left" Height="42" Margin="291,420,0,0" VerticalAlignment="Top" Width="38" Source="/se-escondendo.png" Visibility="Hidden" MouseLeftButtonDown="EsconderConfirmarSenha"/>
         <TextBlock x:Name="txtCadastro" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Cadastro" VerticalAlignment="Top" Width="360" Height="70" FontSize="36" Padding="110,5,0,0" Background="#FF078231" Foreground="White"/>
-        <Image x:Name="imgFechar" HorizontalAlignment="Right" Height="30" Margin="0,20,20,0" VerticalAlignment="Top" Width="30" Source="/x.png" MouseLeftButtonDown="Fechar"/>
-        <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="VoltarParaFrmLogin" Source="/de-volta.png"/>
+        <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="VoltarParaFrmInicial" Source="/de-volta.png"/>
         <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="142" Margin="0,70,0,0" VerticalAlignment="Top" Width="142" Source="/smooth-trip-logo.png"/>
     </Grid>
 </Window>

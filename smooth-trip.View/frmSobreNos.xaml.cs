@@ -23,8 +23,6 @@ namespace smooth_trip
 
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
-            frmInicialMotorista frmInicialMotorista = new frmInicialMotorista();
-            frmInicialMotorista.Show();
             Close();
         }
 

@@ -16,6 +16,7 @@ namespace smooth_trip
 {
     public partial class frmAlterarCarga : Window
     {
+        Usuario usuario = null;
         public frmAlterarCarga()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace smooth_trip
 
         private void IrParaFrmInicialFazendeiro()
         {
-            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro();
+            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro(usuario);
             frmInicialFazendeiro.Show();
             Close();
         }

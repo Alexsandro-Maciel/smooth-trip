@@ -16,21 +16,25 @@ namespace smooth_trip
 {
     public partial class frmAlterarPerfil : Window
     {
-        public frmAlterarPerfil()
+        Usuario usuario1 = null;
+        public frmAlterarPerfil(Usuario usuario)
         {
             InitializeComponent();
+
+            usuario1 = usuario;
         }
 
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
-            IrParaFrmInicialFazendeiro();
-        }
+            if (usuario1.Tipo_Usuario == "Fazendeiro")
+            {
+                IrParaFrmInicialFazendeiro(usuario1);
+            }
 
-        private void IrParaFrmInicialFazendeiro()
-        {
-            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro();
-            frmInicialFazendeiro.Show();
-            Close();
+            else
+            {
+                IrParaFrmInicialMotorista(usuario1);
+            }
         }
 
         private void Fechar(object sender, MouseButtonEventArgs e)
@@ -84,7 +88,180 @@ namespace smooth_trip
 
         private void Atualizar(object sender, MouseButtonEventArgs e)
         {
-            IrParaFrmInicialFazendeiro();
+            if (VerificarCampos() == true)
+            {
+                if (boxSenhaEscondida.Password == boxConfirmarSenhaEscondida.Password)
+                {
+                    string nomeUsuario = boxUsuario.Text;
+                    string email = boxEmail.Text;
+                    string senha = boxSenhaEscondida.Password;
+
+                    if (VerificarSenhaValida(senha) == true)
+                    {
+                        if (cUsuario.VerificarUsuarioExistente(nomeUsuario) == true)
+                        {
+                            IrParaFrmMensagemErro("Esse usuario já está em uso!");
+                        }
+
+                        else
+                        {
+                            if (cUsuario.AtualizarUsuario(usuario1.Id, nomeUsuario, senha, email) == true)
+                            {
+                                if (usuario1.Tipo_Usuario == "Motorista")
+                                {
+                                    IrParaFrmInicialMotorista(usuario1);
+                                }
+
+                                else
+                                {
+                                    IrParaFrmInicialFazendeiro(usuario1);
+                                }
+
+                                IrParaFrmMensagemInformacao("Usuário cadastrado com sucesso!");
+                            }
+
+                            else
+                            {
+                                IrParaFrmMensagemErro("Não foi possível cadastrar, tente novamente!");
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        IrParaFrmMensagemErro("A senha não cumpre os requisitos mínimos!");
+                    }
+                }
+
+                else
+                {
+                    IrParaFrmMensagemErro("Os campos de senha estão diferentes!");
+                }
+
+            }
+
+            else
+            {
+                IrParaFrmMensagemAvisoOK("Preencha todos os campos!");
+            }
         }
+
+        private bool VerificarCampos()
+        {
+            return boxUsuario.Text != "" && boxEmail.Text != "" && boxSenhaEscondida.Password != ""
+                   && boxConfirmarSenhaEscondida.Password != "" || boxUsuario.Text != "" && boxEmail.Text != ""
+                   && boxSenhaVisivel.Text != "" && boxConfirmarSenhaVisivel.Text != "" ? true : false;
+        }
+
+        private bool VerificarSenhaValida(string senha)
+        {
+            string especiais = "!@#$%¨&*()_+-=}{´`ªº][^~|?,<>/°";
+            string letras = "qwertyuiopasdfghjklçzxcvbnm";
+            string maiusculas = letras.ToUpper();
+            string numeros = "1234567890";
+            int tamanhoMinimo = 8;
+
+            bool isNumeroValidos = false;
+            bool isLetrasValidas = false;
+            bool isMaiusculas = false;
+            bool isCaracteresEspeciaisValidos = false;
+            bool isTamanhoMinimoValido = false;
+
+            if (senha.Length <= tamanhoMinimo)
+            {
+                isTamanhoMinimoValido = true;
+                for (int i = 0; i < senha.Length; i++)
+                {
+                    if (isNumeroValidos == false)
+                    {
+                        foreach (char c in numeros)
+                        {
+                            if (c == senha[i])
+                            {
+                                isNumeroValidos = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (isLetrasValidas == false)
+                    {
+                        foreach (char c in letras)
+                        {
+                            if (c.ToString() == senha[i].ToString())
+                            {
+                                isLetrasValidas = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (isMaiusculas == false)
+                    {
+                        foreach (char c in maiusculas)
+                        {
+                            if (c.ToString() == senha[i].ToString())
+                            {
+                                isMaiusculas = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (isCaracteresEspeciaisValidos == false)
+                    {
+                        foreach (char c in especiais)
+                        {
+                            if (c == senha[i])
+                            {
+                                isCaracteresEspeciaisValidos = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (isNumeroValidos == true && isLetrasValidas == true && isCaracteresEspeciaisValidos == true && isTamanhoMinimoValido == true && isMaiusculas == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        private void IrParaFrmMensagemInformacao(string mensagem)
+        {
+            frmMensagemInformacao frmMensagemInformacao = new frmMensagemInformacao(mensagem);
+            frmMensagemInformacao.Show();
+        }
+
+        private void IrParaFrmMensagemErro(string mensagem)
+        {
+            frmMensagemErro frmMensagemErro = new frmMensagemErro(mensagem);
+            frmMensagemErro.Show();
+        }
+
+        private void IrParaFrmMensagemAvisoOK(string mensagem)
+        {
+            frmMensagemAvisoOK frmMensagemAvisoOK = new frmMensagemAvisoOK(mensagem);
+            frmMensagemAvisoOK.Show();
+        }
+
+        private void IrParaFrmInicialFazendeiro(Usuario usuario)
+        {
+            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro(usuario);
+            frmInicialFazendeiro.Show();
+            Close();
+        }
+
+        private void IrParaFrmInicialMotorista(Usuario usuario)
+        {
+            frmInicialMotorista frmInicialMotorista = new frmInicialMotorista(usuario);
+            frmInicialMotorista.Show();
+            Close();
+        }
+
     }
 }

@@ -21,21 +21,9 @@ namespace smooth_trip
             InitializeComponent();
         }
 
-        private void Fechar(object sender, MouseButtonEventArgs e)
+        private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
             Close();
-        }
-
-        private void IrParaFrmLogin()
-        {
-            frmLogin frmLogin = new frmLogin();
-            frmLogin.Show();
-            Close();
-        }
-
-        private void VoltarParaFrmLogin(object sender, MouseButtonEventArgs e)
-        {
-            IrParaFrmLogin();
         }
 
         private void VerSenha(object sender, MouseButtonEventArgs e)
@@ -104,8 +92,8 @@ namespace smooth_trip
                         {
                             if (cUsuario.NovoUsuario(nomeUsuario, senha, email, tipoUsuario) == true)
                             {
-                                IrParaFrmLogin();
                                 IrParaFrmMensagemInformacao("Usuário cadastrado com sucesso!");
+                                Close();
                             }
 
                             else

@@ -16,21 +16,43 @@ namespace smooth_trip
 {
     public partial class frmMinhasCargas : Window
     {
-        public frmMinhasCargas()
+        Usuario usuario1 = null;
+        public frmMinhasCargas(Usuario usuario)
         {
             InitializeComponent();
+
+            usuario1 = usuario;
         }
 
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
-            IrParaFrmInicialFazendeiro();
+            IrParaFrmInicial();
         }
 
-        private void IrParaFrmInicialFazendeiro()
+        private void IrParaFrmInicial()
         {
-            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro();
+            if (usuario1.Tipo_Usuario == "Fazendeiro")
+            {
+                IrParaFrmInicialFazendeiro(usuario1);
+            }
+
+            else
+            {
+                IrParaFrmInicialMotorista(usuario1);
+            }
+
+        }
+
+        private void IrParaFrmInicialFazendeiro(Usuario usuario)
+        {
+            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro(usuario);
             frmInicialFazendeiro.Show();
-            Close();
+        }
+
+        private void IrParaFrmInicialMotorista(Usuario usuario)
+        {
+            frmInicialMotorista frmInicialMotorista = new frmInicialMotorista(usuario);
+            frmInicialMotorista.Show();
         }
 
         private void Fechar(object sender, MouseButtonEventArgs e)

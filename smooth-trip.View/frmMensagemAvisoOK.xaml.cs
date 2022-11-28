@@ -22,5 +22,10 @@ namespace smooth_trip
 
             txtMensagem.Text = mensagem;
         }
+
+        private void OK(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
     }
 }

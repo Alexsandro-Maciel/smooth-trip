@@ -16,21 +16,20 @@ namespace smooth_trip
 {
     public partial class frmConfirmarSenha : Window
     {
-        public frmConfirmarSenha()
+        Usuario usuario1 = null;
+        string comando1 = "";
+
+        public frmConfirmarSenha(Usuario usuario, string comando)
         {
             InitializeComponent();
+
+            usuario1 = usuario;
+            comando1 = comando;
         }
 
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
-            IrParaFrmInicialFazendeiro();
-        }
-
-        private void IrParaFrmInicialFazendeiro()
-        {
-            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro();
-            frmInicialFazendeiro.Show();
-            Close();
+            IrParaFrmInicial();
         }
 
         private void VerConfirmarSenha(object sender, MouseButtonEventArgs e)
@@ -57,9 +56,32 @@ namespace smooth_trip
 
         private void ConfirmarSenha(object sender, MouseButtonEventArgs e)
         {
-            frmAlterarPerfil frmAlterarPerfil = new frmAlterarPerfil();
-            frmAlterarPerfil.Show();
-            Close();
+            if (boxConfirmarSenhaEscondida.Password != "" || boxConfirmarSenhaVisivel.Text != "")
+            {
+                string senhaCriptografada = Criptografia.CriptografarMD5(boxConfirmarSenhaEscondida.Password);
+
+                if (senhaCriptografada == usuario1.Senha)
+                {
+                    if (comando1 == "Alterar")
+                    {
+                        IrParaFrmAlterarPerfil();
+                    }
+                    else
+                    {
+                        IrParaFrmDeletarUsuario();
+                    }
+                }
+
+                else
+                {
+                    IrParaFrmMensagemErro("A senha está incorreta!");
+                }
+            }
+
+            else
+            {
+                IrParaFrmMensagemAvisoOK("Preencha todos os campos!");
+            }
         }
 
         private void Fechar(object sender, MouseButtonEventArgs e)
@@ -71,6 +93,60 @@ namespace smooth_trip
         {
             frmRecuperacaoSenha frmRecuperacaoSenha = new frmRecuperacaoSenha();
             frmRecuperacaoSenha.Show();
+            Close();
+        }
+
+        private void IrParaFrmInicial()
+        {
+            if (usuario1.Tipo_Usuario == "Fazendeiro")
+            {
+                IrParaFrmInicialFazendeiro(usuario1);
+            }
+
+            else
+            {
+                IrParaFrmInicialMotorista(usuario1);
+            }
+
+        }
+
+        private void IrParaFrmInicialFazendeiro(Usuario usuario)
+        {
+            frmInicialFazendeiro frmInicialFazendeiro = new frmInicialFazendeiro(usuario);
+            frmInicialFazendeiro.Show();
+            Close();
+        }
+
+        private void IrParaFrmInicialMotorista(Usuario usuario)
+        {
+            frmInicialMotorista frmInicialMotorista = new frmInicialMotorista(usuario);
+            frmInicialMotorista.Show();
+            Close();
+        }
+
+        private void IrParaFrmAlterarPerfil()
+        {
+            frmAlterarPerfil frmAlterarPerfil = new frmAlterarPerfil(usuario1);
+            frmAlterarPerfil.Show();
+            Close();
+        }
+
+        private void IrParaFrmMensagemErro(string mensagem)
+        {
+            frmMensagemErro frmMensagemErro = new frmMensagemErro(mensagem);
+            frmMensagemErro.Show();
+        }
+
+        private void IrParaFrmMensagemAvisoOK(string mensagem)
+        {
+            frmMensagemAvisoOK frmMensagemAvisoOK = new frmMensagemAvisoOK(mensagem);
+            frmMensagemAvisoOK.Show();
+        }
+
+        private void IrParaFrmDeletarUsuario()
+        {
+            frmDeletarUsuario frmDeletarUsuario = new frmDeletarUsuario(usuario1);
+            frmDeletarUsuario.Show();
             Close();
         }
     }

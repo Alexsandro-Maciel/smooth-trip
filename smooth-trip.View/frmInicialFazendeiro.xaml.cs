@@ -16,12 +16,12 @@ namespace smooth_trip
 {
     public partial class frmInicialFazendeiro : Window
     {
-        Usuario usuario = null;
+        Usuario usuario1 = null;
         public frmInicialFazendeiro(Usuario usuario)
         {
             InitializeComponent();
 
-            usuario = usuario;
+            usuario1 = usuario;
         }
 
         private void Fechar(object sender, MouseButtonEventArgs e)
@@ -33,7 +33,6 @@ namespace smooth_trip
         {
             frmSobreNos frmSobreNos = new frmSobreNos();
             frmSobreNos.Show();
-            Close();
         }
 
         private void AbrirMenu(object sender, MouseButtonEventArgs e)
@@ -72,14 +71,14 @@ namespace smooth_trip
 
         private void IrParaFrmMinhasCargas(object sender, MouseButtonEventArgs e)
         {
-            frmMinhasCargas frmMinhasCargas = new frmMinhasCargas();
+            frmMinhasCargas frmMinhasCargas = new frmMinhasCargas(usuario1);
             frmMinhasCargas.Show();
             Close();
         }
 
-        private void IrParaFrmConfirmarSenha(object sender, MouseButtonEventArgs e)
+        private void IrParaFrmConfirmarSenha(string comando)
         {
-            frmConfirmarSenha frmConfirmarSenha = new frmConfirmarSenha();
+            frmConfirmarSenha frmConfirmarSenha = new frmConfirmarSenha(usuario1, comando);
             frmConfirmarSenha.Show();
             Close();
         }
@@ -98,5 +97,14 @@ namespace smooth_trip
             Close();
         }
 
+        private void AlterarPerfil(object sender, MouseButtonEventArgs e)
+        {
+            IrParaFrmConfirmarSenha("Alterar");
+        }
+
+        private void ExcluirPerfil(object sender, MouseButtonEventArgs e)
+        {
+            IrParaFrmConfirmarSenha("Excluir");
+        }
     }
 }
