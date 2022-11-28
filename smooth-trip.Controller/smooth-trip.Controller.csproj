@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\smooth-trip.Model\smooth-trip.Model.csproj" />
-    <ProjectReference Include="..\smooth-trip.View\smooth-trip.View.csproj" />
   </ItemGroup>
 
 </Project>
