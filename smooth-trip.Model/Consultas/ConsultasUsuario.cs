@@ -318,4 +318,41 @@ public static class ConsultasUsuario
 
         return idUsuario;
     }
+
+    public static bool AlterarSenha(string nomeUsuario, string senha)
+    {
+        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
+        bool foiAtualizado = false;
+        string senhaCriptografada = Criptografia.CriptografarMD5(senha);
+
+        try
+        {
+            conexao.Open();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"Update Usuario 
+                                  set Senha = @senha
+                                  where Nome_Usuario = @nomeUsuario";
+
+            comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
+            comando.Parameters.AddWithValue("@senha", senhaCriptografada);
+
+            var leitura = comando.ExecuteReader();
+            foiAtualizado = true;
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        finally
+        {
+            if (conexao.State == ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+        }
+
+        return foiAtualizado;
+    }
 }

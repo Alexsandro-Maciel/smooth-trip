@@ -46,4 +46,9 @@ public static class cUsuario
         return ConsultasUsuario.ObterIdUsuario(nomeUsuario);
     }
 
+    public static bool AlterarSenha(string nomeUsuario, string senha)
+    {
+        return ConsultasUsuario.AlterarSenha(nomeUsuario, senha);
+    }
+
 }
