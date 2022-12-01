@@ -16,33 +16,43 @@ namespace smooth_trip
 {
     public partial class frmRecuperacaoSenha : Window
     {
+        string codigo = "000000";
         public frmRecuperacaoSenha()
         {
             InitializeComponent();
         }
 
-        private void Fechar(object sender, MouseButtonEventArgs e)
+        private void Voltar(object sender, MouseButtonEventArgs e)
         {
-            Close();
-        }
-
-        private void VoltarParaFrmLogin(object sender, MouseButtonEventArgs e)
-        {
-            frmLogin frmLogin = new frmLogin();
-            frmLogin.Show();
             Close();
         }
 
         private void IrParaFrmVerificarEmail()
         {
-            frmVerificarEmail frmVerificarEmail = new frmVerificarEmail();
+            frmVerificarEmail frmVerificarEmail = new frmVerificarEmail(boxUsuario.Text, codigo);
             frmVerificarEmail.Show();
             Close();
         }
 
         private void AvancarRecuperacaoSenha(object sender, MouseButtonEventArgs e)
         {
-            IrParaFrmVerificarEmail();
+            if (boxEmail.Text != "" && boxUsuario.Text != "")
+            {
+                codigo = EnviarEmails.EnviarEmail(boxEmail.Text, boxUsuario.Text);
+                IrParaFrmVerificarEmail();
+                Close();
+            }
+
+            else
+            {
+                IrParaFrmMensagemAvisoOK("Preencha todos os campos!");
+            }
+        }
+
+        private void IrParaFrmMensagemAvisoOK(string mensagem)
+        {
+            frmMensagemAvisoOK frmMensagemAvisoOK = new frmMensagemAvisoOK(mensagem);
+            frmMensagemAvisoOK.Show();
         }
     }
 }

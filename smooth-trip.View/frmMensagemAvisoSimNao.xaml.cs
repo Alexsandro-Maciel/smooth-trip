@@ -16,26 +16,24 @@ namespace smooth_trip
 {
     public partial class frmMensagemAvisoSimNao : Window
     {
-        public string mensagem1 = "";
-        public string tabela1 = "";
-        public Usuario usuario1 = null;
-        public Carga carga1 = null;
+        string mensagem1 = "";
+        string tabela1 = "";
+        int id1 = 0; 
 
-        public frmMensagemAvisoSimNao(string mensagem, string tabela, Usuario usuario, Carga carga)
+        public frmMensagemAvisoSimNao(string mensagem, string tabela, int id)
         {
             InitializeComponent();
 
             mensagem1 = mensagem;
             tabela1 = tabela;
-            usuario1 = usuario;
-            carga1 = carga;
+            id1 = id;
         }
 
         private void Confirmar(object sender, MouseButtonEventArgs e)
         {
             if (tabela1 == "Usuario")
             {
-                if (cUsuario.ExcluirUsuario(usuario1.Id) == true)
+                if (cUsuario.ExcluirUsuario(id1) == true)
                 {
                     IrParaFrmMensagemInformacao("Perfil excluído com sucesso!");
                     IrParaFrmLogin();
@@ -50,16 +48,15 @@ namespace smooth_trip
             
             else
             {
-                if (cCarga.ExcluirCarga(carga1.Id) == true)
+                if (cCarga.ExcluirCarga(id1) == true)
                 {
                     IrParaFrmMensagemInformacao("Carga excluída com sucesso!");
-                    IrParaFrmInicial();
+                    Close();
                 }
 
                 else
                 {
                     IrParaFrmMensagemErro("Não foi possível excluir!");
-                    IrParaFrmMonitoramento();
                 }
             }
         }
@@ -69,11 +66,6 @@ namespace smooth_trip
             if (tabela1 == "Usuario")
             {
                 IrParaFrmInicial();
-            }
-
-            else
-            {
-                IrParaFrmMonitoramento();
             }
 
             Close();
@@ -124,12 +116,5 @@ namespace smooth_trip
             frmInicialMotorista frmInicialMotorista = new frmInicialMotorista(usuario);
             frmInicialMotorista.Show();
         }
-
-        private void IrParaFrmMonitoramento()
-        {
-            frmMonitoramento frmMonitoramento = new frmMonitoramento();
-            frmMonitoramento.Show();
-        }
-
     }
 }

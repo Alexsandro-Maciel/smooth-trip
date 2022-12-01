@@ -8,8 +8,7 @@
         Title="frmVerificarEmail" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid x:Name="TelaVerificarEmail">
         <TextBlock x:Name="txtVerificacaoEmail" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Verificação de Email" VerticalAlignment="Top" Width="360" Height="70" FontSize="25" Padding="70,15,0,0" Background="#FF078231" Foreground="White"/>
-        <Image x:Name="imgFechar" HorizontalAlignment="Right" Height="30" Margin="0,20,20,0" VerticalAlignment="Top" Width="30" Source="/x.png" MouseLeftButtonDown="Fechar"/>
-        <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="VoltarParaFrmRecuperacaoSenha" Source="/de-volta.png"/>
+        <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="Voltar" Source="/de-volta.png"/>
 
 
         <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="274" Margin="0,70,0,0" VerticalAlignment="Top" Width="274" Source="/smooth-trip-logo.png"/>

@@ -16,28 +16,62 @@ namespace smooth_trip
 {
     public partial class frmVerificarEmail : Window
     {
-        public frmVerificarEmail()
+        string nomeUsuario1 = "";
+        string codigo1 = "";
+
+        public frmVerificarEmail(string nomeUsuario, string codigo)
         {
             InitializeComponent();
+
+            nomeUsuario1 = nomeUsuario;
+            codigo1 = codigo;
         }
 
-        private void Fechar(object sender, MouseButtonEventArgs e)
+        private void Voltar(object sender, MouseButtonEventArgs e)
         {
-            Close();
-        }
-
-        private void VoltarParaFrmRecuperacaoSenha(object sender, MouseButtonEventArgs e)
-        {
-            frmRecuperacaoSenha frmRecuperacaoSenha = new frmRecuperacaoSenha();
-            frmRecuperacaoSenha.Show();
             Close();
         }
 
         private void VerificarEmail(object sender, MouseButtonEventArgs e)
         {
-            frmAlterarSenha frmAlterarSenha = new frmAlterarSenha();
+            if (boxCodigo.Text != "")
+            {
+                if (boxCodigo.Text == codigo1)
+                {
+                    IrParaFrmAlterarSenha();
+                    Close();
+                }
+
+                else
+                {
+                    IrParaFrmMensagemErro("O código está incorreto!");
+                }
+            }
+
+            else
+            {
+                IrParaFrmMensagemAvisoOK("Preencha todos os campos!");
+            }
+        }
+
+        private void IrParaFrmAlterarSenha()
+        {
+            frmAlterarSenha frmAlterarSenha = new frmAlterarSenha(nomeUsuario1);
             frmAlterarSenha.Show();
             Close();
         }
+
+        private void IrParaFrmMensagemErro(string mensagem)
+        {
+            frmMensagemErro frmMensagemErro = new frmMensagemErro(mensagem);
+            frmMensagemErro.Show();
+        }
+
+        private void IrParaFrmMensagemAvisoOK(string mensagem)
+        {
+            frmMensagemAvisoOK frmMensagemAvisoOK = new frmMensagemAvisoOK(mensagem);
+            frmMensagemAvisoOK.Show();
+        }
+
     }
 }

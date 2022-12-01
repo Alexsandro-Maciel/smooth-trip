@@ -16,28 +16,47 @@ namespace smooth_trip
 {
     public partial class frmAlterarSenha : Window
     {
-        public frmAlterarSenha()
+        string nomeUsuario1 = "";
+        public frmAlterarSenha(string nomeUsuario)
         {
             InitializeComponent();
+
+            nomeUsuario1 = nomeUsuario;
         }
 
-        private void Fechar(object sender, MouseButtonEventArgs e)
+        private void Voltar(object sender, MouseButtonEventArgs e)
         {
-            Close();
-        }
-
-        private void VoltarParaFrmRecuperacaoSenha(object sender, MouseButtonEventArgs e)
-        {
-            frmRecuperacaoSenha frmRecuperacaoSenha = new frmRecuperacaoSenha();
-            frmRecuperacaoSenha.Show();
             Close();
         }
 
         private void AtualizarSenha(object sender, MouseButtonEventArgs e)
         {
-            frmLogin frmLogin = new frmLogin();
-            frmLogin.Show();
-            Close();
+            if (boxSenhaEscondida.Password != "" && boxConfirmarSenhaEscondida.Password != "")
+            {
+                if (boxSenhaEscondida.Password == boxConfirmarSenhaEscondida.Password)
+                {
+                    if (cUsuario.AlterarSenha(nomeUsuario1) == true)
+                    {
+                        IrParaFrmMensagemInformacao("Senha Alterada com sucesso!");
+                        Close();
+                    }
+
+                    else
+                    {
+                        IrParaFrmMensagemErro("Não foi possivel alterar a senha!");
+                    }
+                }
+
+                else
+                {
+                    IrParaFrmMensagemAvisoOK("Os campos não estão iguais!");
+                }
+            }
+
+            else
+            {
+                IrParaFrmMensagemAvisoOK("Preencha todos os campos!");
+            }
         }
 
         private void VerSenha(object sender, MouseButtonEventArgs e)
@@ -83,5 +102,24 @@ namespace smooth_trip
 
             boxConfirmarSenhaEscondida.Password = boxSenhaVisivel.Text.ToString();
         }
+
+        private void IrParaFrmMensagemErro(string mensagem)
+        {
+            frmMensagemErro frmMensagemErro = new frmMensagemErro(mensagem);
+            frmMensagemErro.Show();
+        }
+
+        private void IrParaFrmMensagemAvisoOK(string mensagem)
+        {
+            frmMensagemAvisoOK frmMensagemAvisoOK = new frmMensagemAvisoOK(mensagem);
+            frmMensagemAvisoOK.Show();
+        }
+
+        private void IrParaFrmMensagemInformacao(string mensagem)
+        {
+            frmMensagemInformacao frmMensagemInformacao = new frmMensagemInformacao(mensagem);
+            frmMensagemInformacao.Show();
+        }
+
     }
 }

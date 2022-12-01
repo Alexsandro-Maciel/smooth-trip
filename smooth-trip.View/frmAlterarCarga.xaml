@@ -8,8 +8,7 @@
         Title="frmAlterarCarga" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid x:Name="TelaAlterarCarga" Margin="0,-1,0,1">
         <TextBlock x:Name="txtAlterarCarga" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Alterar Carga" VerticalAlignment="Top" Width="360" Height="70" FontSize="36" Padding="85,10,0,0" Background="#FF078231" Foreground="White"/>
-        <Image x:Name="imgFechar" HorizontalAlignment="Right" Height="30" Margin="0,20,20,0" VerticalAlignment="Top" Width="30" Source="/x.png" MouseLeftButtonDown="Fechar"/>
-        <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="VoltarParaFrmInicialFazendeiro" Source="/de-volta.png"/>
+        <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="VoltarParaFrmInicial" Source="/de-volta.png"/>
 
 
         <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="142" Margin="0,70,0,0" VerticalAlignment="Top" Width="142" Source="/smooth-trip-logo.png"/>
@@ -23,14 +22,14 @@
         <TextBox x:Name="boxEnderecoDestino" HorizontalAlignment="Left" Margin="22,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="310" Height="20" Padding="10,-5,0,0" Background="#FF078231" BorderBrush="{x:Null}" Foreground="White" FontSize="18"/>
         <ComboBox x:Name="cbMotoristaResponsavel" HorizontalAlignment="Left" Margin="22,405,0,0" VerticalAlignment="Top" Width="310" HorizontalContentAlignment="Center" Padding="0,3,5,3" Height="20" BorderBrush="{x:Null}" Background="#FF078231" Foreground="White"/>
         <TextBlock x:Name="txtMotoristaResponsavel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="24" FontSize="16" Padding="0,0,0,0" Foreground="Black" Margin="30,378,0,0" Text="Motorista Responsável:"/>
-        <ComboBox x:Name="cbTipoCaminhao" HorizontalAlignment="Left" Margin="22,455,0,0" VerticalAlignment="Top" Width="310" HorizontalContentAlignment="Center" Padding="0,3,5,3" Height="20" BorderBrush="{x:Null}" Background="#FF078231" Foreground="White"/>
+        <ComboBox x:Name="cbTipoCaminhao" HorizontalAlignment="Left" Margin="22,455,0,0" VerticalAlignment="Top" Width="310" HorizontalContentAlignment="Center" Padding="0,3,5,3" Height="20" BorderBrush="{x:Null}" Background="#FF078231" Foreground="White" SelectionChanged="EscolheuCaminhao"/>
         <TextBlock x:Name="txtTipoCaminhao" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="24" FontSize="16" Padding="0,0,0,0" Foreground="Black" Margin="30,428,0,0" Text="Tipo Caminhão:"/>
         <ComboBox x:Name="cbQuantidadeAnimais" HorizontalAlignment="Left" Margin="22,505,0,0" VerticalAlignment="Top" Width="132" HorizontalContentAlignment="Center" Padding="0,3,5,3" Height="20" BorderBrush="{x:Null}" Background="#FF078231" Foreground="White"/>
         <TextBlock x:Name="txtQuantidadeAnimais" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="24" FontSize="16" Padding="0,0,0,0" Foreground="Black" Margin="30,478,0,0" Text="Qntd de Animais:"/>
         <TextBlock x:Name="txtEnderecoOrigem" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="24" FontSize="16" Padding="0,0,0,0" Foreground="Black" Margin="30,331,0,0" Text="Endereço de Origem:"/>
         <TextBox x:Name="boxEnderecoOrigem" HorizontalAlignment="Left" Margin="22,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Height="20" Padding="10,-5,0,0" Background="#FF078231" BorderBrush="{x:Null}" Foreground="White" FontSize="18"/>
         <TextBlock x:Name="txtDataEntrega" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Height="24" FontSize="16" Padding="0,0,0,0" Foreground="Black" Margin="209,478,0,0" Text="Data de Entrega:"/>
-        <TextBox x:Name="boxEnderecoOrigem_Copy" HorizontalAlignment="Left" Margin="196,505,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" Height="20" Padding="10,-5,0,0" Background="#FF078231" BorderBrush="{x:Null}" Foreground="White" FontSize="18"/>
+        <TextBox x:Name="boxDataEntrega" HorizontalAlignment="Left" Margin="196,505,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" Height="20" Padding="10,-5,0,0" Background="#FF078231" BorderBrush="{x:Null}" Foreground="White" FontSize="18"/>
         <Image x:Name="imgAtualizar" HorizontalAlignment="Left" Height="68" Margin="251,561,0,0" VerticalAlignment="Top" Width="68" Source="/atualizar.png" MouseLeftButtonDown="Atualizar"/>
 
     </Grid>

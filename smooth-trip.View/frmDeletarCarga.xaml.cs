@@ -16,24 +16,32 @@ namespace smooth_trip
 {
     public partial class frmDeletarCarga : Window
     {
-        public frmDeletarCarga()
+        int id1 = 0;
+
+        public frmDeletarCarga(int id)
         {
             InitializeComponent();
+
+            id1 = id;
         }
 
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
-
-        }
-
-        private void Fechar(object sender, MouseButtonEventArgs e)
-        {
             Close();
         }
 
-        private void DeletarUsuario(object sender, MouseButtonEventArgs e)
+        private void DeletarCarga(object sender, MouseButtonEventArgs e)
         {
-
+            IrParaFrmMensagemAvisoSimNao("Tem certeza que deseja excluir a carga?", "Carga", id1);
+            Close();
         }
+
+        private void IrParaFrmMensagemAvisoSimNao(string mensagem, string tabela, int id )
+        {
+            frmMensagemAvisoSimNao frmMensagemAvisoSimNao = new frmMensagemAvisoSimNao(mensagem, tabela, id);
+            frmMensagemAvisoSimNao.Show();
+        }
+
+
     }
 }

@@ -98,7 +98,6 @@ namespace smooth_trip
         {
             frmRecuperacaoSenha frmRecuperacaoSenha = new frmRecuperacaoSenha();
             frmRecuperacaoSenha.Show();
-            Close();
         }
 
         private void IrParaFrmInicialFazendeiro(Usuario usuario)

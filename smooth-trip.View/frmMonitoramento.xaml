@@ -8,13 +8,10 @@
         Title="frmMonitoramento" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid x:Name="TelaMonitoramento">
         <TextBlock x:Name="txtMonitoramento" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Monitoramento" VerticalAlignment="Top" Width="360" Height="70" FontSize="30" Padding="75,15,0,0" Background="#FF078231" Foreground="White"/>
-        <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="VoltarParaFrmMinhasCargas" Source="/de-volta.png"/>
+        <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="VoltarParaFrmInicial" Source="/de-volta.png"/>
 
 
         <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="162" Margin="0,70,0,0" VerticalAlignment="Top" Width="162" Source="/smooth-trip-logo.png"/>
-
-
-        <Image x:Name="imgFechar" HorizontalAlignment="Right" Height="30" Margin="0,20,20,0" VerticalAlignment="Top" Width="30" Source="/x.png" MouseLeftButtonDown="Fechar"/>
         <TextBlock x:Name="txtTemperatura" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Temperatura: 20°C" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="90,5,0,0" Background="#FF078231" Foreground="White" Margin="0,281,0,0"/>
         <TextBlock x:Name="txtUmidade" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Umidade: 84%" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="110,5,0,0" Background="#FF078231" Foreground="White" Margin="0,329,0,0"/>
         <TextBlock x:Name="txtNivelComida" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Nível de Comida: 85%" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="70,5,0,0" Background="#FF078231" Foreground="White" Margin="0,377,0,0"/>
@@ -22,6 +19,6 @@
         <TextBlock x:Name="txtCodigoCarga" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Código da Carga: 01" VerticalAlignment="Top" Width="360" Height="50" FontSize="24" Padding="80,5,0,0" Background="#FF078231" Foreground="White" Margin="0,233,0,0"/>
         <TextBlock x:Name="txtAlterar" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Alterar" VerticalAlignment="Top" Width="100" Height="33" FontSize="24" Padding="15,0,0,0" Background="#FF078231" Foreground="White" Margin="24,532,0,0" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" MouseLeftButtonDown="IrParaFrmAlterarCarga"/>
         <TextBlock x:Name="txtExcluir" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Excluir" VerticalAlignment="Top" Width="100" Height="33" FontSize="24" Padding="15,0,0,0" Background="#FF078231" Foreground="White" Margin="225,532,0,0" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" MouseLeftButtonDown="IrParaFrmExcluirCarga"/>
-
+        <Image x:Name="imgAtualizar" HorizontalAlignment="Left" Height="49" Margin="301,11,0,0" VerticalAlignment="Top" Width="49" Source="/atualizar.png" MouseLeftButtonDown="AtualizarDadosMonitoramento"/>
     </Grid>
 </Window>
