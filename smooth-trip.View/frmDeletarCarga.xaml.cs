@@ -38,7 +38,7 @@ namespace smooth_trip
 
         private void IrParaFrmMensagemAvisoSimNao(string mensagem, string tabela, int id )
         {
-            frmMensagemAvisoSimNao frmMensagemAvisoSimNao = new frmMensagemAvisoSimNao(mensagem, tabela, id);
+            frmMensagemAvisoSimNao frmMensagemAvisoSimNao = new frmMensagemAvisoSimNao(mensagem, tabela, null, id);
             frmMensagemAvisoSimNao.Show();
         }
 

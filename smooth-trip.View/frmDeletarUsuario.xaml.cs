@@ -45,7 +45,7 @@ namespace smooth_trip
 
         private void DeletarUsuario(object sender, MouseButtonEventArgs e)
         {
-            IrParaFrmMensagemAvisoSimNao("Tem certeza que deseja excluir o perfil?", "Usuario", usuario1.Id);
+            IrParaFrmMensagemAvisoSimNao("Tem certeza que deseja excluir o perfil?", "Usuario");
             Close();
         }
 
@@ -63,9 +63,9 @@ namespace smooth_trip
             Close();
         }
 
-        private void IrParaFrmMensagemAvisoSimNao(string mensagem, string tabela, int id)
+        private void IrParaFrmMensagemAvisoSimNao(string mensagem, string tabela)
         {
-            frmMensagemAvisoSimNao frmMensagemAvisoSimNao = new frmMensagemAvisoSimNao(mensagem, tabela, id);
+            frmMensagemAvisoSimNao frmMensagemAvisoSimNao = new frmMensagemAvisoSimNao(mensagem, tabela, usuario1, usuario1.Id);
             frmMensagemAvisoSimNao.Show();
         }
 

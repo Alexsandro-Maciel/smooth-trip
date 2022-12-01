@@ -18,22 +18,24 @@ namespace smooth_trip
     {
         string mensagem1 = "";
         string tabela1 = "";
-        int id1 = 0; 
+        int id1 = 0;
+        Usuario usuario1 = null; 
 
-        public frmMensagemAvisoSimNao(string mensagem, string tabela, int id)
+        public frmMensagemAvisoSimNao(string mensagem, string tabela, Usuario usuario, int id)
         {
             InitializeComponent();
 
             mensagem1 = mensagem;
             tabela1 = tabela;
             id1 = id;
+            usuario1 = usuario;
         }
 
         private void Confirmar(object sender, MouseButtonEventArgs e)
         {
             if (tabela1 == "Usuario")
             {
-                if (cUsuario.ExcluirUsuario(id1) == true)
+                if (cUsuario.ExcluirUsuario(usuario1.Id) == true)
                 {
                     IrParaFrmMensagemInformacao("Perfil excluído com sucesso!");
                     IrParaFrmLogin();

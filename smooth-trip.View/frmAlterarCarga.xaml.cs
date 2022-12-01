@@ -99,7 +99,7 @@ namespace smooth_trip
 
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
-            Close()
+            Close();
         }
 
         private void EscolheuCaminhao(object sender, SelectionChangedEventArgs e)

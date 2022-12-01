@@ -64,7 +64,7 @@ namespace smooth_trip
 
         private void IrParaFrmNovasCargas(object sender, MouseButtonEventArgs e)
         {
-            frmNovasCargas frmNovasCargas = new frmNovasCargas();
+            frmNovasCargas frmNovasCargas = new frmNovasCargas(usuario1);
             frmNovasCargas.Show();
             Close();
         }

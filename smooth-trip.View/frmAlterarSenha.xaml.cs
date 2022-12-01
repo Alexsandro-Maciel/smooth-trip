@@ -35,7 +35,7 @@ namespace smooth_trip
             {
                 if (boxSenhaEscondida.Password == boxConfirmarSenhaEscondida.Password)
                 {
-                    if (cUsuario.AlterarSenha(nomeUsuario1) == true)
+                    if (cUsuario.AlterarSenha(nomeUsuario1, boxSenhaEscondida.Password) == true)
                     {
                         IrParaFrmMensagemInformacao("Senha Alterada com sucesso!");
                         Close();
