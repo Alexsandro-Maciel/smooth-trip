@@ -199,4 +199,123 @@ public static class ConsultasUsuario
 
         return usuario;
     }
+
+    public static List<string> ObterNomesFazendeiros()
+    {
+        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
+        List<string> nomes = null;
+
+        try
+        {
+            conexao.Open();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"Select Nome_Usuario from Usuario Where Tipo_Usuario = @tipoUsuario";
+
+            comando.Parameters.AddWithValue("@tipoUsuario", "Fazendeiro");
+
+            var leitura = comando.ExecuteReader();
+
+            while (leitura.Read())
+            {
+                string Nome_Usuario = leitura.GetString("Nome_Usuario");
+                nomes = new List<string>();
+                nomes.Add(Nome_Usuario);
+
+                break;
+            }
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        finally
+        {
+            if (conexao.State == ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+        }
+
+        return nomes;
+    }
+
+    public static List<string> ObterNomesMotoristas()
+    {
+        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
+        List<string> nomes = null;
+
+        try
+        {
+            conexao.Open();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"Select Nome_Usuario from Usuario Where Tipo_Usuario = @tipoUsuario";
+
+            comando.Parameters.AddWithValue("@tipoUsuario", "Motorista");
+
+            var leitura = comando.ExecuteReader();
+
+            while (leitura.Read())
+            {
+                string Nome_Usuario = leitura.GetString("Nome_Usuario");
+                nomes = new List<string>();
+                nomes.Add(Nome_Usuario);
+
+                break;
+            }
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        finally
+        {
+            if (conexao.State == ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+        }
+
+        return nomes;
+    }
+
+    public static int ObterIdUsuario(string nomeUsuario)
+    {
+        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
+        int idUsuario = 0;
+
+        try
+        {
+            conexao.Open();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"Select Id from Usuario Where Nome_Usuario = @nomeUsuario";
+
+            comando.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
+            var leitura = comando.ExecuteReader();
+
+            while (leitura.Read())
+            {
+                idUsuario = leitura.GetInt32("Id");
+                break;
+            }
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        finally
+        {
+            if (conexao.State == ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+        }
+
+        return idUsuario;
+    }
 }

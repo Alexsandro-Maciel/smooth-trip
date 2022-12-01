@@ -31,4 +31,19 @@ public static class cUsuario
         return ConsultasUsuario.ExcluirUsuario(id);
     }
 
+    public static List<string> ObterNomesFazendeiros()
+    {
+        return ConsultasUsuario.ObterNomesFazendeiros();
+    }
+
+    public static List<string> ObterNomesMotoristas()
+    {
+        return ConsultasUsuario.ObterNomesMotoristas();
+    }
+
+    public static int ObterIdUsuario(string nomeUsuario)
+    {
+        return ConsultasUsuario.ObterIdUsuario(nomeUsuario);
+    }
+
 }
