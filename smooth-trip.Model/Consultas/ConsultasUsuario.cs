@@ -319,6 +319,43 @@ public static class ConsultasUsuario
         return idUsuario;
     }
 
+    public static string ObterNomeUsuarioPeloId(int id)
+    {
+        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
+        string nomeUsuario = "";
+
+        try
+        {
+            conexao.Open();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"Select Nome_Usuario from Usuario Where Id = @id";
+
+            comando.Parameters.AddWithValue("@id", id);
+            var leitura = comando.ExecuteReader();
+
+            while (leitura.Read())
+            {
+                nomeUsuario = leitura.GetString("Nome_Usuario");
+                break;
+            }
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        finally
+        {
+            if (conexao.State == ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+        }
+
+        return nomeUsuario;
+    }
+
     public static bool AlterarSenha(string nomeUsuario, string senha)
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);

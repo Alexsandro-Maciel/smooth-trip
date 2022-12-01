@@ -46,6 +46,11 @@ public static class cUsuario
         return ConsultasUsuario.ObterIdUsuario(nomeUsuario);
     }
 
+    public static string ObterNomeUsuarioPeloId(int id)
+    {
+        return ConsultasUsuario.ObterNomeUsuarioPeloId(id);
+    }
+
     public static bool AlterarSenha(string nomeUsuario, string senha)
     {
         return ConsultasUsuario.AlterarSenha(nomeUsuario, senha);

@@ -143,7 +143,7 @@ namespace smooth_trip
             bool isCaracteresEspeciaisValidos = false;
             bool isTamanhoMinimoValido = false;
 
-            if (senha.Length <= tamanhoMinimo)
+            if (senha.Length >= tamanhoMinimo)
             {
                 isTamanhoMinimoValido = true;
                 for (int i = 0; i < senha.Length; i++)

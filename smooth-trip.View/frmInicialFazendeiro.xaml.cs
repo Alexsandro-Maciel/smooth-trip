@@ -44,6 +44,7 @@ namespace smooth_trip
             txtMinhasCargas.Visibility = Visibility.Visible;
             txtAlterarPerfil.Visibility = Visibility.Visible;
             txtExcluirPerfil.Visibility = Visibility.Visible;
+            txtCadastrarMotorista.Visibility = Visibility.Visible;
             txtSair.Visibility = Visibility.Visible;
             imgLogoPreta.Visibility = Visibility.Visible;
         }
@@ -57,6 +58,7 @@ namespace smooth_trip
             txtMinhasCargas.Visibility = Visibility.Hidden;
             txtAlterarPerfil.Visibility = Visibility.Hidden;
             txtExcluirPerfil.Visibility = Visibility.Hidden;
+            txtCadastrarMotorista.Visibility = Visibility.Hidden;
             txtSair.Visibility = Visibility.Hidden;
             imgLogoPreta.Visibility = Visibility.Hidden;
 
@@ -87,7 +89,6 @@ namespace smooth_trip
         {
             frmCadastroMotorista frmCadastroMotorista = new frmCadastroMotorista();
             frmCadastroMotorista.Show();
-            Close();
         }
 
         private void RealizarLogout(object sender, MouseButtonEventArgs e)

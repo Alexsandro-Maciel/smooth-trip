@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Sistema\**" />
+    <EmbeddedResource Remove="Sistema\**" />
+    <None Remove="Sistema\**" />
+    <Page Remove="Sistema\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="atualizar.png" />
     <None Remove="deletar-lixeira.png" />
     <None Remove="multiplicar %281%29.png" />
@@ -75,10 +82,6 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Sistema\" />
   </ItemGroup>
 
   <ItemGroup>

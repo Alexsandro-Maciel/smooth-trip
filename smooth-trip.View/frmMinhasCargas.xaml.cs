@@ -27,6 +27,7 @@ namespace smooth_trip
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
             IrParaFrmInicial();
+            Close();
         }
 
         private void IrParaFrmInicial()

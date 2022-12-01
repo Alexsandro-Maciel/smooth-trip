@@ -22,6 +22,8 @@ namespace smooth_trip
             InitializeComponent();
 
             usuario1 = usuario;
+
+            PrepararTela();
         }
 
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
@@ -98,9 +100,35 @@ namespace smooth_trip
 
                     if (VerificarSenhaValida(senha) == true)
                     {
-                        if (cUsuario.VerificarUsuarioExistente(nomeUsuario) == true)
+                        if (boxUsuario.Text != usuario1.Nome_Usuario) 
                         {
-                            IrParaFrmMensagemErro("Esse usuario já está em uso!");
+                            if (cUsuario.VerificarUsuarioExistente(nomeUsuario) == true)
+                            {
+                                IrParaFrmMensagemErro("Esse usuario já está em uso!");
+                            }
+
+                            else
+                            {
+                                if (cUsuario.AtualizarUsuario(usuario1.Id, nomeUsuario, senha, email) == true)
+                                {
+                                    if (usuario1.Tipo_Usuario == "Motorista")
+                                    {
+                                        IrParaFrmInicialMotorista(usuario1);
+                                    }
+
+                                    else
+                                    {
+                                        IrParaFrmInicialFazendeiro(usuario1);
+                                    }
+
+                                    IrParaFrmMensagemInformacao("Usuário atualizado com sucesso!");
+                                }
+
+                                else
+                                {
+                                    IrParaFrmMensagemErro("Não foi possível atualizar, tente novamente!");
+                                }
+                            }
                         }
 
                         else
@@ -117,14 +145,15 @@ namespace smooth_trip
                                     IrParaFrmInicialFazendeiro(usuario1);
                                 }
 
-                                IrParaFrmMensagemInformacao("Usuário cadastrado com sucesso!");
+                                IrParaFrmMensagemInformacao("Usuário atualizado com sucesso!");
                             }
 
                             else
                             {
-                                IrParaFrmMensagemErro("Não foi possível cadastrar, tente novamente!");
+                                IrParaFrmMensagemErro("Não foi possível atualizar, tente novamente!");
                             }
                         }
+                        
                     }
 
                     else
@@ -167,7 +196,7 @@ namespace smooth_trip
             bool isCaracteresEspeciaisValidos = false;
             bool isTamanhoMinimoValido = false;
 
-            if (senha.Length <= tamanhoMinimo)
+            if (senha.Length >= tamanhoMinimo)
             {
                 isTamanhoMinimoValido = true;
                 for (int i = 0; i < senha.Length; i++)
@@ -263,5 +292,9 @@ namespace smooth_trip
             Close();
         }
 
+        private void PrepararTela()
+        {
+            boxUsuario.Text = usuario1.Nome_Usuario;
+            boxEmail.Text = usuario1.Email;        }
     }
 }

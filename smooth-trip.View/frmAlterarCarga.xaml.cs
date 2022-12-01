@@ -33,13 +33,13 @@ namespace smooth_trip
             {
                 Carga carga = new Carga();
 
-                carga.Id_Fazendeiro_Destinatario = cUsuario.ObterIdUsuario(cbFazendeiroDestinatario.Text);
-                carga.Id_Fazendeiro_Remetente = cUsuario.ObterIdUsuario(cbFazendeiroRemetente.Text);
-                carga.Id_Motorista = cUsuario.ObterIdUsuario(cbMotoristaResponsavel.Text);
+                carga.Id_Fazendeiro_Destinatario = cUsuario.ObterIdUsuario(cbFazendeiroDestinatario.SelectedItem.ToString());
+                carga.Id_Fazendeiro_Remetente = cUsuario.ObterIdUsuario(cbFazendeiroRemetente.SelectedItem.ToString());
+                carga.Id_Motorista = cUsuario.ObterIdUsuario(cbMotoristaResponsavel.SelectedItem.ToString());
                 carga.Endereco_Destino = boxEnderecoDestino.Text;
                 carga.Endereco_Origem = boxEnderecoOrigem.Text;
                 carga.Tipo_Caminhao = cbTipoCaminhao.Text;
-                carga.Quantidade_Animais = Int32.Parse(cbQuantidadeAnimais.Text);
+                carga.Quantidade_Animais = Int32.Parse(cbQuantidadeAnimais.SelectedItem.ToString());
                 carga.Data_Entrega = boxDataEntrega.Text;
 
                 if (cCarga.AtualizarCarga(carga) == true)
@@ -76,13 +76,20 @@ namespace smooth_trip
             List<string> motoristas = new List<string>();
             motoristas = cUsuario.ObterNomesMotoristas();
 
-            cbFazendeiroDestinatario.Items.Add(fazendeiros);
-            cbFazendeiroRemetente.Items.Add(fazendeiros);
-            cbMotoristaResponsavel.Items.Add(motoristas);
+            foreach (string nome in fazendeiros)
+            {
+                cbFazendeiroDestinatario.Items.Add(nome);
+                cbFazendeiroRemetente.Items.Add(nome);
+            }
 
-            cbFazendeiroDestinatario.Text = carga1.Id_Fazendeiro_Destinatario.ToString();
-            cbFazendeiroRemetente.Text = carga1.Id_Fazendeiro_Remetente.ToString();
-            cbMotoristaResponsavel.Text = carga1.Id_Motorista.ToString();
+            foreach (string nome in motoristas)
+            {
+                cbMotoristaResponsavel.Items.Add(motoristas);
+            }
+
+            cbFazendeiroDestinatario.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Fazendeiro_Destinatario);
+            cbFazendeiroRemetente.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Fazendeiro_Remetente);
+            cbMotoristaResponsavel.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Motorista);
 
 
             cbTipoCaminhao.Items.Add("Truck");
