@@ -27,6 +27,7 @@
     <None Remove="sinal-de-informacao.png" />
     <None Remove="smooth-trip-logo-preta.jpeg" />
     <None Remove="smooth-trip-logo-preta.png" />
+    <None Remove="smooth-trip-logo.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,7 +16,6 @@ namespace smooth_trip
 {
     public partial class frmMensagemAvisoSimNao : Window
     {
-        string mensagem1 = "";
         string tabela1 = "";
         int id1 = 0;
         Usuario usuario1 = null; 
@@ -25,7 +24,7 @@ namespace smooth_trip
         {
             InitializeComponent();
 
-            mensagem1 = mensagem;
+            txtMensagem.Text = mensagem;
             tabela1 = tabela;
             id1 = id;
             usuario1 = usuario;
@@ -37,14 +36,14 @@ namespace smooth_trip
             {
                 if (cUsuario.ExcluirUsuario(usuario1.Id) == true)
                 {
-                    IrParaFrmMensagemInformacao("Perfil excluído com sucesso!");
                     IrParaFrmLogin();
+                    IrParaFrmMensagemInformacao("Perfil excluído com sucesso!");
                 }
 
                 else
                 {
-                    IrParaFrmMensagemErro("Não foi possível excluir!");
                     IrParaFrmInicial();
+                    IrParaFrmMensagemErro("Não foi possível excluir!");
                 }
             }
             

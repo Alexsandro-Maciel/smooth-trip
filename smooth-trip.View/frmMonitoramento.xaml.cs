@@ -16,12 +16,15 @@ namespace smooth_trip
 {
     public partial class frmMonitoramento : Window
     {
+        int id1 = 0;
+
         Carga carga1 = null;
 
-        public frmMonitoramento(Carga carga)
+        public frmMonitoramento(int id, Carga carga)
         {
             InitializeComponent();
 
+            id1 = id;
             carga1 = carga;
 
             ApresentarDadosMonitoramento();
@@ -53,9 +56,9 @@ namespace smooth_trip
 
         private void ApresentarDadosMonitoramento()
         {
-            Carga carga = cCarga.ObterDadosMonitoramento(carga1.Id);
+            Carga carga = cCarga.ObterDadosMonitoramento(id1);
 
-            txtCodigoCarga.Text = $"Código da Carga: 0{carga1.Id}";
+            txtCodigoCarga.Text = $"Código da Carga: 0{id1}";
             txtTemperatura.Text = $"Temperatura: {carga.Temperatura}ºC";
             txtUmidade.Text = $"Umidade: {carga.Umidade}%";
             txtNivelAgua.Text = $"Nivel de Água: {carga.Nivel_Agua}%";

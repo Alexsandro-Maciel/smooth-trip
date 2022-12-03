@@ -11,7 +11,7 @@
         <Image x:Name="imgFechar" HorizontalAlignment="Right" Height="30" Margin="0,20,20,0" VerticalAlignment="Top" Width="30" Source="/x.png" MouseLeftButtonDown="Fechar"/>
 
 
-        <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="138" Margin="0,124,0,0" VerticalAlignment="Top" Width="142" Source="/smooth-trip-logo.png"/>
+        <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="182" Margin="0,124,0,0" VerticalAlignment="Top" Width="187" Source="/smooth-trip-logo.png"/>
 
 
         <TextBlock x:Name="txtUsuario" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Usuário:" VerticalAlignment="Center" Width="70" Height="28" FontSize="16" Padding="0,0,0,0" Foreground="Black" Margin="33,0,0,0"/>

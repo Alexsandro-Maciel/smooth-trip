@@ -28,26 +28,14 @@ public static class EnviarEmails
 
         //define os endereços
         mail.From = new MailAddress("smoothtrip.senai@gmail.com");
-        mail.To.Add("alexsandromaciel.m@gmail.com");
+        mail.To.Add(email);
 
         //define o conteúdo
         mail.Subject = "Redefinição de Senha (Não Responda)";
         mail.Body = 
-                    $"Olá {nomeUsuario}," +
-                    $"Você solicitou a recuperação de senha segue o código para redefiní-la:" +
-                    $"" +
-                    $"" +
-                    $"{codigo}" +
-                    $"" +
-                    $"" +
-                    $"Se você não solicitou este código por favor entre em contato com o nosso suporte através do email:" +
-                    $"smoothtrip.senai@gmail.com" +
-                    $"" +
-                    $"" +
-                    $"" +
-                    $"Att. Equipe de Suporte Smooth Trip." +
-                    $"" +
-                    $"NÃO RESPONDA ESSE EMAIL!"
+                    $"Olá {nomeUsuario},\r\nVocê solicitou a recuperação de senha segue o código para redefiní-la:\r\n \r\n \r\n{codigo}\r\n \r\n \r\n" +
+                    $"Se você não solicitou este código por favor entre em contato com o nosso suporte através do email:\r\nsmoothtrip.senai@gmail.com" +
+                    $"\r\n \r\n \r\n \r\nAtt. Equipe de Suporte Smooth Trip.\r\n \r\nNÃO RESPONDA ESSE EMAIL!"
                     ;
 
         //envia a mensagem

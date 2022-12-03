@@ -27,22 +27,56 @@ namespace smooth_trip
             Configurar();
         }
 
+        private void Configurar()
+        {
+            List<string> fazendeiros = new List<string>();
+            fazendeiros = cUsuario.ObterNomesFazendeiros();
+
+            List<string> motoristas = new List<string>();
+            motoristas = cUsuario.ObterNomesMotoristas();
+
+            foreach (string nome in fazendeiros)
+            {
+                cbFazendeiroDestinatario.Items.Add(nome);
+                cbFazendeiroRemetente.Items.Add(nome);
+            }
+
+            foreach (string nome in motoristas)
+            {
+                cbMotoristaResponsavel.Items.Add(nome);
+            }
+
+            cbTipoCaminhao.Items.Add("Truck");
+            cbTipoCaminhao.Items.Add("Carreta Baixa");
+            cbTipoCaminhao.Items.Add("Carreta Alta");
+
+            cbTipoCaminhao.Text = carga1.Tipo_Caminhao;
+            cbQuantidadeAnimais.Text = carga1.Quantidade_Animais.ToString();
+            cbMotoristaResponsavel.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Motorista);
+            cbFazendeiroRemetente.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Fazendeiro_Remetente);
+            cbFazendeiroDestinatario.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Fazendeiro_Destinatario);
+            boxDataEntrega.Text = carga1.Data_Entrega;
+            boxEnderecoDestino.Text = carga1.Endereco_Destino;
+            boxEnderecoOrigem.Text = carga1.Endereco_Origem;
+        }
+
         private void Atualizar(object sender, MouseButtonEventArgs e)
         {
             if (VerificarCampos() == true)
             {
-                Carga carga = new Carga();
+                //Carga carga = new Carga();
 
-                carga.Id_Fazendeiro_Destinatario = cUsuario.ObterIdUsuario(cbFazendeiroDestinatario.SelectedItem.ToString());
-                carga.Id_Fazendeiro_Remetente = cUsuario.ObterIdUsuario(cbFazendeiroRemetente.SelectedItem.ToString());
-                carga.Id_Motorista = cUsuario.ObterIdUsuario(cbMotoristaResponsavel.SelectedItem.ToString());
-                carga.Endereco_Destino = boxEnderecoDestino.Text;
-                carga.Endereco_Origem = boxEnderecoOrigem.Text;
-                carga.Tipo_Caminhao = cbTipoCaminhao.Text;
-                carga.Quantidade_Animais = Int32.Parse(cbQuantidadeAnimais.SelectedItem.ToString());
-                carga.Data_Entrega = boxDataEntrega.Text;
+                carga1.Id_Fazendeiro_Destinatario = cUsuario.ObterIdUsuario(cbFazendeiroDestinatario.SelectedItem.ToString());
+                carga1.Id_Fazendeiro_Remetente = cUsuario.ObterIdUsuario(cbFazendeiroRemetente.SelectedItem.ToString());
+                carga1.Id_Motorista = cUsuario.ObterIdUsuario(cbMotoristaResponsavel.SelectedItem.ToString());
+                carga1.Endereco_Destino = boxEnderecoDestino.Text;
+                carga1.Endereco_Origem = boxEnderecoOrigem.Text;
+                carga1.Tipo_Caminhao = cbTipoCaminhao.Text;
+                carga1.Quantidade_Animais = Int32.Parse(cbQuantidadeAnimais.SelectedItem.ToString());
+                carga1.Data_Entrega = boxDataEntrega.Text;
+                carga1.Data_Saida = DateTime.Now.ToString("yyyy-MM-dd");
 
-                if (cCarga.AtualizarCarga(carga) == true)
+                if (cCarga.AtualizarCarga(carga1) == true)
                 {
                     Close();
                     IrParaFrmMensagemInformacao("Carga atualizada com sucesso!");
@@ -68,42 +102,6 @@ namespace smooth_trip
                    && cbTipoCaminhao.Text != "" && boxDataEntrega.Text != "" ? true : false;
         }
 
-        private void Configurar()
-        {
-            List<string> fazendeiros = new List<string>();
-            fazendeiros = cUsuario.ObterNomesFazendeiros();
-
-            List<string> motoristas = new List<string>();
-            motoristas = cUsuario.ObterNomesMotoristas();
-
-            foreach (string nome in fazendeiros)
-            {
-                cbFazendeiroDestinatario.Items.Add(nome);
-                cbFazendeiroRemetente.Items.Add(nome);
-            }
-
-            foreach (string nome in motoristas)
-            {
-                cbMotoristaResponsavel.Items.Add(motoristas);
-            }
-
-            cbFazendeiroDestinatario.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Fazendeiro_Destinatario);
-            cbFazendeiroRemetente.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Fazendeiro_Remetente);
-            cbMotoristaResponsavel.Text = cUsuario.ObterNomeUsuarioPeloId(carga1.Id_Motorista);
-
-
-            cbTipoCaminhao.Items.Add("Truck");
-            cbTipoCaminhao.Items.Add("Carreta Baixa");
-            cbTipoCaminhao.Items.Add("Carreta Alta");
-
-            cbTipoCaminhao.Text = carga1.Tipo_Caminhao;
-
-            boxEnderecoDestino.Text = carga1.Endereco_Destino;
-            boxEnderecoOrigem.Text = carga1.Endereco_Origem;
-            boxDataEntrega.Text = carga1.Data_Entrega;
-            cbQuantidadeAnimais.Text = carga1.Quantidade_Animais.ToString();
-        }
-
         private void VoltarParaFrmInicial(object sender, MouseButtonEventArgs e)
         {
             Close();
@@ -111,10 +109,11 @@ namespace smooth_trip
 
         private void EscolheuCaminhao(object sender, SelectionChangedEventArgs e)
         {
-            switch (cbTipoCaminhao.Text)
+            cbQuantidadeAnimais.Items.Clear();
+            switch (cbTipoCaminhao.SelectedItem.ToString())
             {
                 case "Truck":
-                    for (int i = 0; i <= 15; i++)
+                    for (int i = 1; i <= 15; i++)
                     {
                         cbQuantidadeAnimais.Items.Add(i.ToString());
                     }
@@ -122,7 +121,7 @@ namespace smooth_trip
                     break;
 
                 case "Carreta Baixa":
-                    for (int i = 0; i <= 25; i++)
+                    for (int i = 1; i <= 25; i++)
                     {
                         cbQuantidadeAnimais.Items.Add(i.ToString());
                     }
@@ -130,7 +129,7 @@ namespace smooth_trip
                     break;
 
                 case "Carreta Alta":
-                    for (int i = 0; i <= 35; i++)
+                    for (int i = 1; i <= 35; i++)
                     {
                         cbQuantidadeAnimais.Items.Add(i.ToString());
                     }

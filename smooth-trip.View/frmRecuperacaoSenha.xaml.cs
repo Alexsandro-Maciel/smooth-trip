@@ -24,7 +24,7 @@ namespace smooth_trip
 
         private void Voltar(object sender, MouseButtonEventArgs e)
         {
-            Close();
+            IrParaFrmLogin();
         }
 
         private void IrParaFrmVerificarEmail()
@@ -54,5 +54,13 @@ namespace smooth_trip
             frmMensagemAvisoOK frmMensagemAvisoOK = new frmMensagemAvisoOK(mensagem);
             frmMensagemAvisoOK.Show();
         }
+
+        private void IrParaFrmLogin()
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+            Close();
+        }
+
     }
 }

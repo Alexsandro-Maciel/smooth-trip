@@ -131,10 +131,11 @@ namespace smooth_trip
 
         private void EscolheuCaminhao(object sender, SelectionChangedEventArgs e)
         {
+            cbQuantidadeAnimais.Items.Clear();
             switch (cbTipoCaminhao.SelectedItem.ToString())
             {
                 case "Truck":
-                    for (int i = 0; i <= 15; i++)
+                    for (int i = 1; i <= 15; i++)
                     {
                         cbQuantidadeAnimais.Items.Add(i.ToString());
                     }
@@ -142,7 +143,7 @@ namespace smooth_trip
                     break;
 
                 case "Carreta Baixa":
-                    for (int i = 0; i <= 25; i++)
+                    for (int i = 1; i <= 25; i++)
                     {
                         cbQuantidadeAnimais.Items.Add(i.ToString());
                     }
@@ -150,7 +151,7 @@ namespace smooth_trip
                     break;
 
                 case "Carreta Alta":
-                    for (int i = 0; i <= 35; i++)
+                    for (int i = 1; i <= 35; i++)
                     {
                         cbQuantidadeAnimais.Items.Add(i.ToString());
                     }
