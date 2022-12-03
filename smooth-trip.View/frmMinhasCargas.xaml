@@ -11,16 +11,7 @@
         <Image x:Name="imgFechar" HorizontalAlignment="Right" Height="30" Margin="0,20,20,0" VerticalAlignment="Top" Width="30" Source="/x.png" MouseLeftButtonDown="Fechar"/>
         <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" Source="/de-volta.png" MouseLeftButtonDown="VoltarParaFrmInicial"/>
         <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="142" Margin="0,498,0,0" VerticalAlignment="Top" Width="142" Source="/smooth-trip-logo.png"/>
-        <DataGrid x:Name="dgvMinhasCargas" Margin="0,70,0,170" BorderBrush="{x:Null}" Foreground="#FF078231" Background="#FF078231" FontWeight="Bold">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Cód."/>
-                <DataGridTextColumn Header="Origem"/>
-                <DataGridTextColumn Header="Destino"/>
-                <DataGridTextColumn Header="Destinatário"/>
-                <DataGridTextColumn Header="Remetente"/>
-                <DataGridTextColumn Header="Motorista"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <DataGrid x:Name="dgvMinhasCargas" Margin="0,70,0,170" BorderBrush="{x:Null}" Foreground="Black" Background="#FF078231" FontWeight="Bold" MouseDoubleClick="PegarItemNoGrid" AlternatingRowBackground="#FF078231" RowBackground="#FF078231"/>
 
     </Grid>
 </Window>

@@ -25,4 +25,14 @@ public static class cCarga
     {
         return ConsultasCarga.ObterDadosMonitoramento(id);
     }
+
+    public static List<Carga> ObterTodasCargas(int idUsuario)
+    {
+        return ConsultasCarga.ObterTodasCargas(idUsuario);
+    }
+
+    public static Carga ObterDadosCargaSelecionada(int idCarga)
+    {
+        return ConsultasCarga.ObterDadosCargaSelecionada(idCarga);
+    }
 }

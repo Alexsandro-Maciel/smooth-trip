@@ -71,7 +71,8 @@ public class ConsultasCarga
                                     Id_Fazendeiro_Destinatario = @Id_Fazendeiro_Destinatario, 
                                     Id_Motorista = @Id_Motorista 
                                     where Id = @id";
-                             
+
+            comando.Parameters.AddWithValue("@id", carga.Id);                 
             comando.Parameters.AddWithValue("@Endereco_Destino", carga.Endereco_Destino);
             comando.Parameters.AddWithValue("@Endereco_Origem", carga.Endereco_Origem);
             comando.Parameters.AddWithValue("@Quantidade_Animais", carga.Quantidade_Animais);
@@ -98,28 +99,35 @@ public class ConsultasCarga
         return foiAlterado;
     }
 
-    public static List<Carga> ObterTodasCargas()
+    public static List<Carga> ObterTodasCargas(int idUsuario)
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
-        List<Carga> listaDeProdutos = new List<Carga>();
+        List<Carga> listaDeCarga = new List<Carga>();
 
         try
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT * FROM Cargas where Id_Fazendeiro_Destinatário = @idUsuarioLogado or Id_Fazendeiro_Destinatário = @idUsuarioLogado or Id_Motorista = @idUsuarioLogado ";
+            comando.CommandText = @"SELECT * FROM Carga where Id_Fazendeiro_Destinatario = @idUsuario or 
+                                  Id_Fazendeiro_Remetente = @idUsuario or Id_Motorista = @idUsuario";
+
+            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
             var leitura = comando.ExecuteReader();
             while (leitura.Read())
             {
                 Carga carga = new Carga();
                 carga.Id = leitura.GetInt32("id");
-                carga.Endereco_Destino = leitura.GetString("nome");
-                carga.Endereco_Origem = leitura.GetString("descricao");
-                carga.Quantidade_Animais = leitura.GetInt32("fabricante");
-                carga.Tipo_Caminhao = leitura.GetString("qtd");
-                carga.Temperatura = (float)leitura.GetDecimal("temperatura");
+                carga.Endereco_Destino = leitura.GetString("Endereco_Destino");
+                carga.Endereco_Origem = leitura.GetString("Endereco_Origem");
+                carga.Data_Saida = leitura.GetDateTime ("Data_Saida").ToString("yyyy-MM-dd");
+                carga.Data_Entrega = leitura.GetDateTime("Data_Entrega").ToString("yyyy-MM-dd");
+                carga.Quantidade_Animais = leitura.GetInt32("Quantidade_Animais");
+                carga.Tipo_Caminhao = leitura.GetString("Tipo_Caminhao");
+                carga.Id_Fazendeiro_Destinatario = leitura.GetInt32("Id_Fazendeiro_Destinatario");
+                carga.Id_Fazendeiro_Remetente = leitura.GetInt32("Id_Fazendeiro_Remetente");
+                carga.Id_Motorista = leitura.GetInt32("Id_Motorista");
 
-                listaDeProdutos.Add(carga);
+                listaDeCarga.Add(carga);
             }
         }
         catch (Exception e)
@@ -133,8 +141,51 @@ public class ConsultasCarga
                 conexao.Close();
             }
         }
-        return listaDeProdutos;
+        return listaDeCarga;
     }
+
+    public static Carga ObterDadosCargaSelecionada(int idCarga)
+    {
+        var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
+        Carga carga = null;
+
+        try
+        {
+            conexao.Open();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"SELECT * FROM Carga where Id = @idCarga";
+
+            comando.Parameters.AddWithValue("@idCarga", idCarga);
+            var leitura = comando.ExecuteReader();
+            while (leitura.Read())
+            {
+                carga = new Carga();
+                carga.Id = leitura.GetInt32("id");
+                carga.Endereco_Destino = leitura.GetString("Endereco_Destino");
+                carga.Endereco_Origem = leitura.GetString("Endereco_Origem");
+                carga.Data_Saida = leitura.GetDateTime("Data_Saida").ToString("yyyy-MM-dd");
+                carga.Data_Entrega = leitura.GetDateTime("Data_Entrega").ToString("yyyy-MM-dd");
+                carga.Quantidade_Animais = leitura.GetInt32("Quantidade_Animais");
+                carga.Tipo_Caminhao = leitura.GetString("Tipo_Caminhao");
+                carga.Id_Fazendeiro_Destinatario = leitura.GetInt32("Id_Fazendeiro_Destinatario");
+                carga.Id_Fazendeiro_Remetente = leitura.GetInt32("Id_Fazendeiro_Remetente");
+                carga.Id_Motorista = leitura.GetInt32("Id_Motorista");
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        finally
+        {
+            if (conexao.State == System.Data.ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+        }
+        return carga;
+    }
+
 
     public static bool ExcluirCarga(int id)
     {
@@ -178,7 +229,7 @@ public class ConsultasCarga
         {
             conexao.Open();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT Temperatura, Umidade, Nivel_Comida, Nivel_Agua FROM Cargas where Id = @id";
+            comando.CommandText = @"SELECT Temperatura, Umidade, Nivel_Comida, Nivel_Agua FROM Carga where Id = @id";
 
             comando.Parameters.AddWithValue("@id", id);
             var leitura = comando.ExecuteReader();

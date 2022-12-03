@@ -26,7 +26,7 @@ namespace smooth_trip
 
         private void Voltar(object sender, MouseButtonEventArgs e)
         {
-            Close();
+            IrParaFrmLogin();
         }
 
         private void AtualizarSenha(object sender, MouseButtonEventArgs e)
@@ -37,8 +37,9 @@ namespace smooth_trip
                 {
                     if (cUsuario.AlterarSenha(nomeUsuario1, boxSenhaEscondida.Password) == true)
                     {
-                        IrParaFrmMensagemInformacao("Senha Alterada com sucesso!");
+                        IrParaFrmLogin();
                         Close();
+                        IrParaFrmMensagemInformacao("Senha Alterada com sucesso!");
                     }
 
                     else
@@ -119,6 +120,12 @@ namespace smooth_trip
         {
             frmMensagemInformacao frmMensagemInformacao = new frmMensagemInformacao(mensagem);
             frmMensagemInformacao.Show();
+        }
+
+        private void IrParaFrmLogin()
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
         }
 
     }

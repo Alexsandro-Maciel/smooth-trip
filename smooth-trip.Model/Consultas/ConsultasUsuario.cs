@@ -203,7 +203,7 @@ public static class ConsultasUsuario
     public static List<string> ObterNomesFazendeiros()
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
-        List<string> nomes = null;
+        List<string> nomes = new List<string>();
 
         try
         {
@@ -217,11 +217,9 @@ public static class ConsultasUsuario
 
             while (leitura.Read())
             {
-                string Nome_Usuario = leitura.GetString("Nome_Usuario");
-                nomes = new List<string>();
-                nomes.Add(Nome_Usuario);
-
-                break;
+                Usuario usuario = new Usuario();
+                usuario.Nome_Usuario = leitura.GetString("Nome_Usuario");
+                nomes.Add(usuario.Nome_Usuario);
             }
         }
 
@@ -244,7 +242,7 @@ public static class ConsultasUsuario
     public static List<string> ObterNomesMotoristas()
     {
         var conexao = new MySqlConnection(ConexaoBD.Connection.ConnectionString);
-        List<string> nomes = null;
+        List<string> nomes = new List<string>();
 
         try
         {
@@ -258,11 +256,9 @@ public static class ConsultasUsuario
 
             while (leitura.Read())
             {
-                string Nome_Usuario = leitura.GetString("Nome_Usuario");
-                nomes = new List<string>();
-                nomes.Add(Nome_Usuario);
-
-                break;
+                Usuario usuario = new Usuario();
+                usuario.Nome_Usuario = leitura.GetString("Nome_Usuario");
+                nomes.Add(usuario.Nome_Usuario);
             }
         }
 

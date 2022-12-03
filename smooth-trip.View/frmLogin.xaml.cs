@@ -90,9 +90,8 @@ namespace smooth_trip
         private void EsqueceuSenha(object sender, MouseButtonEventArgs e)
         {
             IrParaFrmRecuperacaoSenha();
+            Close();
         }
-
-
 
         private void IrParaFrmRecuperacaoSenha()
         {
