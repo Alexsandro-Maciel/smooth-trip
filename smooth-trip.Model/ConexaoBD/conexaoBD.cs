@@ -13,10 +13,10 @@ public class ConexaoBD
         {
             return new MySqlConnectionStringBuilder
             {
-                Server = "127.0.0.1",
-                UserID = "root",
-                Password = "",
-                Database = "Smooth_Trip"
+                Server = "db4free.net",
+                UserID = "alexsandro",
+                Password = "dbNovicAae180@",
+                Database = "smooth_trip"
             };
         }
 
