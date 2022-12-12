@@ -2,10 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.22000.0</TargetFramework>
     <RootNamespace>smooth_trip.View</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <UseWindowsForms>False</UseWindowsForms>
+    <ApplicationIcon>smooth-trip-logo.ico</ApplicationIcon>
+    <PackageIcon>smooth-trip-logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +32,17 @@
     <None Remove="smooth-trip-logo-preta.jpeg" />
     <None Remove="smooth-trip-logo-preta.png" />
     <None Remove="smooth-trip-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="smooth-trip-logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Artes do Projeto\smooth-trip-logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

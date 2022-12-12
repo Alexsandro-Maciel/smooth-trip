@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:smooth_trip"
         mc:Ignorable="d"
-        Title="frmVerificarEmail" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="frmVerificarEmail" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Icon="/smooth-trip-logo.png">
     <Grid x:Name="TelaVerificarEmail">
         <TextBlock x:Name="txtVerificacaoEmail" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Verificação de Email" VerticalAlignment="Top" Width="360" Height="70" FontSize="25" Padding="70,15,0,0" Background="#FF078231" Foreground="White"/>
         <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="Voltar" Source="/de-volta.png"/>

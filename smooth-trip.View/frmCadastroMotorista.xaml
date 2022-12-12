@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:smooth_trip"
         mc:Ignorable="d"
-        Title="frmCadastroMotorista" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="frmCadastroMotorista" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Icon="/smooth-trip-logo.png">
     <Grid x:Name="TelaCadastroMotorista">
 
 

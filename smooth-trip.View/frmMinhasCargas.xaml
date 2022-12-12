@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:smooth_trip"
         mc:Ignorable="d"
-        Title="frmMinhasCargas" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="frmMinhasCargas" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Icon="/smooth-trip-logo.png">
     <Grid x:Name="TelaMinhasCargas">
         <TextBlock x:Name="txtMinhasCargas" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Minhas Cargas" VerticalAlignment="Top" Width="360" Height="70" FontSize="36" Padding="65,10,0,0" Background="#FF078231" Foreground="White"/>
         <Image x:Name="imgFechar" HorizontalAlignment="Right" Height="30" Margin="0,20,20,0" VerticalAlignment="Top" Width="30" Source="/x.png" MouseLeftButtonDown="Fechar"/>

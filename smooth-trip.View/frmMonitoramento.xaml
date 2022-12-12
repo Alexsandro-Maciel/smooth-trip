@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:smooth_trip"
         mc:Ignorable="d"
-        Title="frmMonitoramento" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="frmMonitoramento" Height="640" Width="360" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Icon="/smooth-trip-logo.png">
     <Grid x:Name="TelaMonitoramento">
         <TextBlock x:Name="txtMonitoramento" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Monitoramento" VerticalAlignment="Top" Width="360" Height="70" FontSize="30" Padding="75,15,0,0" Background="#FF078231" Foreground="White"/>
         <Image x:Name="imgVoltar" HorizontalAlignment="Left" Height="48" Margin="10,11,0,0" VerticalAlignment="Top" Width="48" MouseLeftButtonDown="VoltarParaFrmInicial" Source="/de-volta.png"/>

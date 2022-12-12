@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:smooth_trip"
         mc:Ignorable="d"
-        Title="frmMensagemAvisoOK" Height="224" Width="320" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF078231">
+        Title="frmMensagemAvisoOK" Height="224" Width="320" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF078231" Icon="/smooth-trip-logo.png">
     <Grid>
         <Image x:Name="imgAtencao" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Source="/sinal-de-aviso.png"/>
         <TextBlock x:Name="txtTitulo" HorizontalAlignment="Center" Margin="0,15,0,0" TextWrapping="Wrap" Text="Atenção" VerticalAlignment="Top" FontSize="30" Foreground="White"/>

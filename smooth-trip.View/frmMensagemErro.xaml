@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:smooth_trip"
         mc:Ignorable="d"
-        Title="frmMensagemErro" Height="224" Width="320" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF078231">
+        Title="frmMensagemErro" Height="224" Width="320" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF078231" Icon="/smooth-trip-logo.png">
     <Grid>
         <TextBlock x:Name="txtMensagem" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Preencha todos os campos." VerticalAlignment="Top" FontSize="22" Foreground="White" Height="101" Width="208" Margin="0,60,0,0"/>
         <Image x:Name="imgError" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Source="/multiplicar (1).png"/>
